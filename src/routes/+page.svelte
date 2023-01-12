@@ -1,2 +1,8 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+
+</script>
+
+<h1>Stable Scout 2</h1>
+<a href="">Upload</a>
+<a href="/scoutPart1">Scout</a>
+
