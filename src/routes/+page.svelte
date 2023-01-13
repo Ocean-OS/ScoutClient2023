@@ -17,6 +17,7 @@
 <style>
     /* Applying columned layout to page */
     section {
+        width: 100vw;
         display: flex;
         flex-direction: column;
         align-items: center;
