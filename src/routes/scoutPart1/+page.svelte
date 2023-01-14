@@ -5,7 +5,7 @@
 <!-- Section for flexbox purposes -->
 <section>
     <!-- Back button just in case user accidentally presses scout button -->
-    <a href="/" class="backButton">Back</a>
+    <a href="/home" class="backButton">Back</a>
 
     <!-- Page Title -->
     <h1>Pregame info</h1>
@@ -47,7 +47,7 @@
 
     /* Styling to make links look like buttons */
     a {
-        width: 50%;
+        width: 80%;
         padding: 10px;
         padding-top: 30px;
         padding-bottom: 30px;
@@ -85,7 +85,11 @@
         align-self: flex-start;
     }
 
-    .inputAreas {
+    .inputArea {
         margin-bottom: 15%;
+    }
+
+    input {
+        height: 25px;
     }
 </style>

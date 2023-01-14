@@ -9,7 +9,7 @@
 
     <!-- Links for starting scouting and uploading data -->
     <a href="/scoutPart1">Scout</a>
-    <a href="">Upload</a>
+    <a href="/upload">Upload</a>
 </section>
 
 
