@@ -1,11 +1,14 @@
 <!-- JS CODE -->
+<script>
+
+</script>
 
 <!-- HTML CODE -->
 
 <!-- Section for flexbox purposes -->
 <section>
     <!-- Back button just in case user accidentally presses scout button -->
-    <a href="/home" class="backButton">Back</a>
+    <a href="/" class="backButton">Back</a>
 
     <!-- Page Title -->
     <h1>Pregame info</h1>

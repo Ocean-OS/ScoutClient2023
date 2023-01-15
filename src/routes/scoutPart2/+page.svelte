@@ -20,37 +20,91 @@
         <!-- Outline for INGA -->
         <section class="INGA">
             <!-- Top row of INGA -->
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="box">
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="box">
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="box">
-            <input type="checkbox" class="cone">
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="purple">
+                <input type="checkbox" class="box">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="purple">
+                <input type="checkbox" class="box">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="purple">
+                <input type="checkbox" class="box">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
 
             <!-- Mid row of INGA -->
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="box">
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="box">
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="box">
-            <input type="checkbox" class="cone">
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="purple">
+                <input type="checkbox" class="box">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="purple">
+                <input type="checkbox" class="box">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="purple">
+                <input type="checkbox" class="box">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
 
             <!-- Low row of INGA -->
-            <input type="checkbox" class="hybrid">
-            <input type="checkbox" class="hybrid">
-            <input type="checkbox" class="hybrid">
-            <input type="checkbox" class="hybrid">
-            <input type="checkbox" class="hybrid">
-            <input type="checkbox" class="hybrid">
-            <input type="checkbox" class="hybrid">
-            <input type="checkbox" class="hybrid">
-            <input type="checkbox" class="hybrid">
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
         </section>
 
         <!-- Input area for attempted nodes -->
@@ -95,37 +149,91 @@
         <!-- Outline for INGA -->
         <section class="INGA">
             <!-- Top row of INGA -->
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="box">
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="box">
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="box">
-            <input type="checkbox" class="cone">
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="purple">
+                <input type="checkbox" class="box">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="purple">
+                <input type="checkbox" class="box">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="purple">
+                <input type="checkbox" class="box">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
 
             <!-- Mid row of INGA -->
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="box">
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="box">
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="cone">
-            <input type="checkbox" class="box">
-            <input type="checkbox" class="cone">
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="purple">
+                <input type="checkbox" class="box">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="purple">
+                <input type="checkbox" class="box">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
+            <div class="purple">
+                <input type="checkbox" class="box">
+            </div>
+            <div class="yellow">
+                <input type="checkbox" class="cone">
+            </div>
 
             <!-- Low row of INGA -->
-            <input type="checkbox" class="hybrid">
-            <input type="checkbox" class="hybrid">
-            <input type="checkbox" class="hybrid">
-            <input type="checkbox" class="hybrid">
-            <input type="checkbox" class="hybrid">
-            <input type="checkbox" class="hybrid">
-            <input type="checkbox" class="hybrid">
-            <input type="checkbox" class="hybrid">
-            <input type="checkbox" class="hybrid">
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
+            <div class="dual">
+                <input type="checkbox" class="hybrid">
+            </div>
         </section>
 
         <!-- Input area for attempted nodes -->
@@ -250,11 +358,19 @@
         flex-wrap: wrap;
         justify-content: space-between;
         margin-bottom: 20px;
+        background-color: #ffff00;
+        border: solid 1px black;
     }
 
-    input[type="checkbox"] {
-        width: 30px;
-        height: 30px;
+    .cone,
+    .box,
+    .hybrid {
+        width: 29px;
+        height: 29px;
+    }
+
+    .cone {
+        clip-path: circle(46% at 50% 50%);
     }
 
     .inputArea {
@@ -280,5 +396,25 @@
     .toPage {
         margin-top: 25%;
         width: 80%;
+    }
+    .yellow {
+        background-color: #ffff00;
+        border: solid 1px black;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .purple {
+        background-color: #ff00ff;
+        border: solid 1px black;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .dual {
+        background: linear-gradient(135deg, rgba(255,0,255,1) 49%, rgba(255,255,0,1) 49%);
+        border: solid 1px black;
+        margin: 0px;
+        padding: 0px;
     }
 </style>
