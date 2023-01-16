@@ -9,7 +9,7 @@
     <h1>Upload Data</h1>
 
     <!-- Links for starting scouting and uploading data -->
-    <a href="/routes">To Home</a>
+    <a href="/">To Home</a>
 </section>
 
 <!-- CSS CODE -->
