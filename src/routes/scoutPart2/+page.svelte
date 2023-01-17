@@ -43,6 +43,34 @@
     let h8 = 0;
     let h9 = 0;
 
+    let active1 = false;
+    let active2 = false;
+    let active3 = false;
+    let active4 = false;
+    let active5 = false;
+    let active6 = false;
+    let active7 = false;
+    let active8 = false;
+    let active9 = false;
+    let active10 = false;
+    let active11 = false;
+    let active12 = false;
+    let active13 = false;
+    let active14 = false;
+    let active15 = false;
+    let active16 = false;
+    let active17 = false;
+    let active18 = false;
+    let active19 = false;
+    let active20 = false;
+    let active21 = false;
+    let active22 = false;
+    let active23 = false;
+    let active24 = false;
+    let active25 = false;
+    let active26 = false;
+    let active27 = false;
+
     // attempted nodes functions
     function attIncr () {
         att = att + 1;
@@ -93,6 +121,7 @@
     function c1Check () {
         if (c1 == 0) {
             c1 = 1;
+            
         } else {
             c1 = 0;
         }
@@ -357,13 +386,17 @@
 
     // final data functions
     function accCheck () {
-        acc = 100 * (totalNum / (totalNum + att));
+        if ((coneNum == 0) && (cubeNum == 0)) {
+            acc = 0;
+        } else {
+            acc = 100 * (totalNum / (totalNum + att));
+        }
     }
 
     function prefCheck () {
-        if (coneNum / totalNum > 0.6) {
+        if (coneNum / cubeNum >= 2) {
             pref = "cone";
-        } else if (coneNum / totalNum < 0.4) {
+        } else if (coneNum / cubeNum <= 0.5) {
             pref = "cube";
         } else {
             pref = "both";
@@ -395,89 +428,89 @@
         <section class="INGA">
             <!-- Top row of INGA -->
             <div class="yellow">
-                <button class="cone" on:click={c1Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c1Check} on:click={accCheck} on:click={prefCheck} class:active1={active1} on:click="{() => active1 = !active1}"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b1Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="box" on:click={b1Check} on:click={accCheck} on:click={prefCheck} class:active2={active2} on:click="{() => active2 = !active2}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c2Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c2Check} on:click={accCheck} on:click={prefCheck} class:active3={active3} on:click="{() => active3 = !active3}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c3Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c3Check} on:click={accCheck} on:click={prefCheck} class:active4={active4} on:click="{() => active4 = !active4}"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b2Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="box" on:click={b2Check} on:click={accCheck} on:click={prefCheck} class:active5={active5} on:click="{() => active5 = !active5}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c4Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c4Check} on:click={accCheck} on:click={prefCheck} class:active6={active6} on:click="{() => active6 = !active6}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c5Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c5Check} on:click={accCheck} on:click={prefCheck} class:active7={active7} on:click="{() => active7 = !active7}"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b3Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="box" on:click={b3Check} on:click={accCheck} on:click={prefCheck} class:active8={active8} on:click="{() => active8 = !active8}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c6Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c6Check} on:click={accCheck} on:click={prefCheck} class:active9={active9} on:click="{() => active9 = !active9}"></button>
             </div>
 
             <!-- Mid row of INGA -->
             <div class="yellow">
-                <button class="cone" on:click={c7Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c7Check} on:click={accCheck} on:click={prefCheck} class:active10={active10} on:click="{() => active10 = !active10}"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b4Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="box" on:click={b4Check} on:click={accCheck} on:click={prefCheck} class:active11={active11} on:click="{() => active11 = !active11}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c8Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c8Check} on:click={accCheck} on:click={prefCheck} class:active12={active12} on:click="{() => active12 = !active12}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c9Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c9Check} on:click={accCheck} on:click={prefCheck} class:active13={active13} on:click="{() => active13 = !active13}"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b5Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="box" on:click={b5Check} on:click={accCheck} on:click={prefCheck} class:active14={active14} on:click="{() => active14 = !active14}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c10Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c10Check} on:click={accCheck} on:click={prefCheck} class:active15={active15} on:click="{() => active15 = !active15}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c11Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c11Check} on:click={accCheck} on:click={prefCheck} class:active16={active16} on:click="{() => active16 = !active16}"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b6Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="box" on:click={b6Check} on:click={accCheck} on:click={prefCheck} class:active17={active17} on:click="{() => active17 = !active17}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c12Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c12Check} on:click={accCheck} on:click={prefCheck} class:active18={active18} on:click="{() => active18 = !active18}"></button>
             </div>
 
             <!-- Low row of INGA -->
             <div class="dual">
-                <button class="hybrid" on:click={h1Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h1Check} on:click={accCheck} on:click={prefCheck} class:active19={active19} on:click="{() => active19 = !active19}"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h2Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h2Check} on:click={accCheck} on:click={prefCheck} class:active20={active20} on:click="{() => active20 = !active20}"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h3Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h3Check} on:click={accCheck} on:click={prefCheck} class:active21={active21} on:click="{() => active21 = !active21}"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h4Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h4Check} on:click={accCheck} on:click={prefCheck} class:active22={active22} on:click="{() => active22 = !active22}"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h5Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h5Check} on:click={accCheck} on:click={prefCheck} class:active23={active23} on:click="{() => active23 = !active23}"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h6Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h6Check} on:click={accCheck} on:click={prefCheck} class:active24={active24} on:click="{() => active24 = !active24}"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h7Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h7Check} on:click={accCheck} on:click={prefCheck} class:active25={active25} on:click="{() => active25 = !active25}"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h8Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h8Check} on:click={accCheck} on:click={prefCheck} class:active26={active26} on:click="{() => active26 = !active26}"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h9Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h9Check} on:click={accCheck} on:click={prefCheck} class:active27={active27} on:click="{() => active27 = !active27}"></button>
             </div>
         </section>
 
@@ -528,89 +561,89 @@
         <section class="INGA">
             <!-- Top row of INGA -->
             <div class="yellow">
-                <button class="cone" on:click={c1Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c1Check} on:click={accCheck} on:click={prefCheck} class:active1={active1} on:click="{() => active1 = !active1}"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b1Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="box" on:click={b1Check} on:click={accCheck} on:click={prefCheck} class:active2={active2} on:click="{() => active2 = !active2}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c2Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c2Check} on:click={accCheck} on:click={prefCheck} class:active3={active3} on:click="{() => active3 = !active3}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c3Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c3Check} on:click={accCheck} on:click={prefCheck} class:active4={active4} on:click="{() => active4 = !active4}"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b2Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="box" on:click={b2Check} on:click={accCheck} on:click={prefCheck} class:active5={active5} on:click="{() => active5 = !active5}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c4Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c4Check} on:click={accCheck} on:click={prefCheck} class:active6={active6} on:click="{() => active6 = !active6}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c5Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c5Check} on:click={accCheck} on:click={prefCheck} class:active7={active7} on:click="{() => active7 = !active7}"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b3Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="box" on:click={b3Check} on:click={accCheck} on:click={prefCheck} class:active8={active8} on:click="{() => active8 = !active8}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c6Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c6Check} on:click={accCheck} on:click={prefCheck} class:active9={active9} on:click="{() => active9 = !active9}"></button>
             </div>
 
             <!-- Mid row of INGA -->
             <div class="yellow">
-                <button class="cone" on:click={c7Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c7Check} on:click={accCheck} on:click={prefCheck} class:active10={active10} on:click="{() => active10 = !active10}"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b4Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="box" on:click={b4Check} on:click={accCheck} on:click={prefCheck} class:active11={active11} on:click="{() => active11 = !active11}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c8Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c8Check} on:click={accCheck} on:click={prefCheck} class:active12={active12} on:click="{() => active12 = !active12}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c9Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c9Check} on:click={accCheck} on:click={prefCheck} class:active13={active13} on:click="{() => active13 = !active13}"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b5Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="box" on:click={b5Check} on:click={accCheck} on:click={prefCheck} class:active14={active14} on:click="{() => active14 = !active14}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c10Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c10Check} on:click={accCheck} on:click={prefCheck} class:active15={active15} on:click="{() => active15 = !active15}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c11Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c11Check} on:click={accCheck} on:click={prefCheck} class:active16={active16} on:click="{() => active16 = !active16}"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b6Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="box" on:click={b6Check} on:click={accCheck} on:click={prefCheck} class:active17={active17} on:click="{() => active17 = !active17}"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c12Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="cone" on:click={c12Check} on:click={accCheck} on:click={prefCheck} class:active18={active18} on:click="{() => active18 = !active18}"></button>
             </div>
 
             <!-- Low row of INGA -->
             <div class="dual">
-                <button class="hybrid" on:click={h1Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h1Check} on:click={accCheck} on:click={prefCheck} class:active19={active19} on:click="{() => active19 = !active19}"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h2Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h2Check} on:click={accCheck} on:click={prefCheck} class:active20={active20} on:click="{() => active20 = !active20}"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h3Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h3Check} on:click={accCheck} on:click={prefCheck} class:active21={active21} on:click="{() => active21 = !active21}"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h4Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h4Check} on:click={accCheck} on:click={prefCheck} class:active22={active22} on:click="{() => active22 = !active22}"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h5Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h5Check} on:click={accCheck} on:click={prefCheck} class:active23={active23} on:click="{() => active23 = !active23}"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h6Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h6Check} on:click={accCheck} on:click={prefCheck} class:active24={active24} on:click="{() => active24 = !active24}"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h7Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h7Check} on:click={accCheck} on:click={prefCheck} class:active25={active25} on:click="{() => active25 = !active25}"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h8Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h8Check} on:click={accCheck} on:click={prefCheck} class:active26={active26} on:click="{() => active26 = !active26}"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h9Check} on:click={accCheck} on:click={prefCheck}></button>
+                <button class="hybrid" on:click={h9Check} on:click={accCheck} on:click={prefCheck} class:active27={active27} on:click="{() => active27 = !active27}"></button>
             </div>
         </section>
 
@@ -672,6 +705,9 @@
         </section>
         <section class="inputArea">
             <p>Preferred Element: {pref}</p>
+        </section>
+        <section class="inputArea">
+            <p>Points Scored: </p>
         </section>
     </section>
 
@@ -830,5 +866,35 @@
         border: solid 1px black;
         margin: 0px;
         padding: 0px;
+    }
+
+    .active1,
+    .active2,
+    .active3,
+    .active4,
+    .active5,
+    .active6,
+    .active7,
+    .active8,
+    .active9,
+    .active10,
+    .active11,
+    .active12,
+    .active13,
+    .active14,
+    .active15,
+    .active16,
+    .active17,
+    .active18,
+    .active19,
+    .active20,
+    .active21,
+    .active22,
+    .active23,
+    .active24,
+    .active25,
+    .active26,
+    .active27 {
+        background-color: #30ace2;
     }
 </style>
