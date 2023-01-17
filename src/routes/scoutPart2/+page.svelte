@@ -1,15 +1,18 @@
 <!-- JS CODE -->
 <script>
-	import { append, set_attributes } from "svelte/internal";
-
 
     // Define variables
-    let coneNum = 0;
-    let cubeNum = 0;
     let totalNum = 0;
+    let acc = 0;
+    let pref = null;
+    let links = 0;
+
     let att = 0;
     let fouls = 0;
     let tFouls = 0;
+    let coneNum = 0;
+    let cubeNum = 0;
+
     let c1 = 0;
     let c2 = 0;
     let c3 = 0;
@@ -22,18 +25,14 @@
     let c10 = 0;
     let c11 = 0;
     let c12 = 0;
+
     let b1 = 0;
     let b2 = 0;
     let b3 = 0;
     let b4 = 0;
     let b5 = 0;
     let b6 = 0;
-    let b7 = 0;
-    let b8 = 0;
-    let b9 = 0;
-    let b10 = 0;
-    let b11 = 0;
-    let b12 = 0;
+
     let h1 = 0;
     let h2 = 0;
     let h3 = 0;
@@ -78,10 +77,18 @@
         }
     }
 
-    // cone checkbox functions
-    function coneCheck () {
-        
+    // links functions
+    function lIncr () {
+        links = links + 1;
     }
+
+    function lDecr () {
+        if (links > 0) {
+            links = links - 1;
+        }
+    }
+
+    // cone checkbox functions
 
     function c1Check () {
         if (c1 == 0) {
@@ -202,6 +209,166 @@
         coneNum = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12;
         totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
     }
+
+    // cube checkbox functions
+
+    function b1Check () {
+        if (b1 == 0) {
+            b1 = 1;
+        } else {
+            b1 = 0;
+        }
+        cubeNum = b1 + b2 + b3 + b4 + b5 + b6;
+        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
+    }
+
+    function b2Check () {
+        if (b2 == 0) {
+            b2 = 1;
+        } else {
+            b2 = 0;
+        }
+        cubeNum = b1 + b2 + b3 + b4 + b5 + b6;
+        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
+    }
+
+    function b3Check () {
+        if (b3 == 0) {
+            b3 = 1;
+        } else {
+            b3 = 0;
+        }
+        cubeNum = b1 + b2 + b3 + b4 + b5 + b6;
+        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
+    }
+
+    function b4Check () {
+        if (b4 == 0) {
+            b4 = 1;
+        } else {
+            b4 = 0;
+        }
+        cubeNum = b1 + b2 + b3 + b4 + b5 + b6;
+        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
+    }
+
+    function b5Check () {
+        if (b5 == 0) {
+            b5 = 1;
+        } else {
+            b5 = 0;
+        }
+        cubeNum = b1 + b2 + b3 + b4 + b5 + b6;
+        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
+    }
+
+    function b6Check () {
+        if (b6 == 0) {
+            b6 = 1;
+        } else {
+            b6 = 0;
+        }
+        cubeNum = b1 + b2 + b3 + b4 + b5 + b6;
+        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
+    }
+
+    // hybrid checkbox functions
+
+    function h1Check () {
+        if (h1 == 0) {
+            h1 = 1;
+        } else {
+            h1 = 0;
+        }
+        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
+    }
+
+    function h2Check () {
+        if (h2 == 0) {
+            h2 = 1;
+        } else {
+            h2 = 0;
+        }
+        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
+    }
+
+    function h3Check () {
+        if (h3 == 0) {
+            h3 = 1;
+        } else {
+            h3 = 0;
+        }
+        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
+    }
+
+    function h4Check () {
+        if (h4 == 0) {
+            h4 = 1;
+        } else {
+            h4 = 0;
+        }
+        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
+    }
+
+    function h5Check () {
+        if (h5 == 0) {
+            h5 = 1;
+        } else {
+            h5 = 0;
+        }
+        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
+    }
+
+    function h6Check () {
+        if (h6 == 0) {
+            h6 = 1;
+        } else {
+            h6 = 0;
+        }
+        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
+    }
+
+    function h7Check () {
+        if (h7 == 0) {
+            h7 = 1;
+        } else {
+            h7 = 0;
+        }
+        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
+    }
+
+    function h8Check () {
+        if (h8 == 0) {
+            h8 = 1;
+        } else {
+            h8 = 0;
+        }
+        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
+    }
+
+    function h9Check () {
+        if (h9 == 0) {
+            h9 = 1;
+        } else {
+            h9 = 0;
+        }
+        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
+    }
+
+    // final data functions
+    function accCheck () {
+        acc = 100 * (totalNum / (totalNum + att));
+    }
+
+    function prefCheck () {
+        if (coneNum / totalNum > 0.6) {
+            pref = "cone";
+        } else if (coneNum / totalNum < 0.4) {
+            pref = "cube";
+        } else {
+            pref = "both";
+        }
+    }
 </script>
 
 <!-- HTML CODE -->
@@ -220,103 +387,105 @@
     <section class="scoutingArea">
 
         <p>Cones: {coneNum}</p>
+        <p>Cubes: {cubeNum}</p>
+        <p>Total: {totalNum}</p>
 
         <!-- Interactable node grid area -->
         <!-- Outline for INGA -->
         <section class="INGA">
             <!-- Top row of INGA -->
             <div class="yellow">
-                <button class="cone" on:click={c1Check}></button>
+                <button class="cone" on:click={c1Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box" on:click={b1Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c2Check}></button>
+                <button class="cone" on:click={c2Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c3Check}></button>
+                <button class="cone" on:click={c3Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box" on:click={b2Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c4Check}></button>
+                <button class="cone" on:click={c4Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c5Check}></button>
+                <button class="cone" on:click={c5Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box" on:click={b3Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c6Check}></button>
+                <button class="cone" on:click={c6Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
 
             <!-- Mid row of INGA -->
             <div class="yellow">
-                <button class="cone" on:click={c7Check}></button>
+                <button class="cone" on:click={c7Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box" on:click={b4Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c8Check}></button>
+                <button class="cone" on:click={c8Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c9Check}></button>
+                <button class="cone" on:click={c9Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box" on:click={b5Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c10Check}></button>
+                <button class="cone" on:click={c10Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c11Check}></button>
+                <button class="cone" on:click={c11Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box" on:click={b6Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c12Check}></button>
+                <button class="cone" on:click={c12Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
 
             <!-- Low row of INGA -->
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid" on:click={h1Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid" on:click={h2Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid" on:click={h3Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid" on:click={h4Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid" on:click={h5Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid" on:click={h6Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid" on:click={h7Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid" on:click={h8Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid" on:click={h9Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
         </section>
 
         <!-- Input area for attempted nodes -->
         <section class="inputArea">
             <p>Attempted: {att}</p>
-            <button class="Incr" on:click={attIncr}>+</button>
-            <button class="Decr" on:click={attDecr}>-</button>
+            <button class="Incr" on:click={attIncr} on:click={accCheck}>+</button>
+            <button class="Decr" on:click={attDecr} on:click={accCheck}>-</button>
         </section>
         
         <!-- Input area for tech fouls -->
@@ -350,102 +519,113 @@
     <!-- Teleop criteria grid -->
     <section class="scoutingArea">
 
+        <p>Cones: {coneNum}</p>
+        <p>Cubes: {cubeNum}</p>
+        <p>Total: {totalNum}</p>
+
         <!-- Interactable node grid area -->
         <!-- Outline for INGA -->
         <section class="INGA">
             <!-- Top row of INGA -->
             <div class="yellow">
-                <input type="checkbox" class="cone">
+                <button class="cone" on:click={c1Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="purple">
-                <input type="checkbox" class="box">
+                <button class="box" on:click={b1Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <input type="checkbox" class="cone">
+                <button class="cone" on:click={c2Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <input type="checkbox" class="cone">
+                <button class="cone" on:click={c3Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="purple">
-                <input type="checkbox" class="box">
+                <button class="box" on:click={b2Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <input type="checkbox" class="cone">
+                <button class="cone" on:click={c4Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <input type="checkbox" class="cone">
+                <button class="cone" on:click={c5Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="purple">
-                <input type="checkbox" class="box">
+                <button class="box" on:click={b3Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <input type="checkbox" class="cone">
+                <button class="cone" on:click={c6Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
 
             <!-- Mid row of INGA -->
             <div class="yellow">
-                <input type="checkbox" class="cone">
+                <button class="cone" on:click={c7Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="purple">
-                <input type="checkbox" class="box">
+                <button class="box" on:click={b4Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <input type="checkbox" class="cone">
+                <button class="cone" on:click={c8Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <input type="checkbox" class="cone">
+                <button class="cone" on:click={c9Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="purple">
-                <input type="checkbox" class="box">
+                <button class="box" on:click={b5Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <input type="checkbox" class="cone">
+                <button class="cone" on:click={c10Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <input type="checkbox" class="cone">
+                <button class="cone" on:click={c11Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="purple">
-                <input type="checkbox" class="box">
+                <button class="box" on:click={b6Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="yellow">
-                <input type="checkbox" class="cone">
+                <button class="cone" on:click={c12Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
 
             <!-- Low row of INGA -->
             <div class="dual">
-                <input type="checkbox" class="hybrid">
+                <button class="hybrid" on:click={h1Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="dual">
-                <input type="checkbox" class="hybrid">
+                <button class="hybrid" on:click={h2Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="dual">
-                <input type="checkbox" class="hybrid">
+                <button class="hybrid" on:click={h3Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="dual">
-                <input type="checkbox" class="hybrid">
+                <button class="hybrid" on:click={h4Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="dual">
-                <input type="checkbox" class="hybrid">
+                <button class="hybrid" on:click={h5Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="dual">
-                <input type="checkbox" class="hybrid">
+                <button class="hybrid" on:click={h6Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="dual">
-                <input type="checkbox" class="hybrid">
+                <button class="hybrid" on:click={h7Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="dual">
-                <input type="checkbox" class="hybrid">
+                <button class="hybrid" on:click={h8Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
             <div class="dual">
-                <input type="checkbox" class="hybrid">
+                <button class="hybrid" on:click={h9Check} on:click={accCheck} on:click={prefCheck}></button>
             </div>
         </section>
 
         <!-- Input area for attempted nodes -->
         <section class="inputArea">
             <p>Attempted: {att}</p>
-            <button class="Incr" on:click={attIncr}>+</button>
-            <button class="Decr" on:click={attDecr}>-</button>
+            <button class="Incr" on:click={attIncr} on:click={accCheck}>+</button>
+            <button class="Decr" on:click={attDecr} on:click={accCheck}>-</button>
+        </section>
+
+        <!-- Input area for links completed -->
+        <section class="inputArea">
+            <p>Links Completed: {links}</p>
+            <button class="Incr" on:click={lIncr} on:click={accCheck}>+</button>
+            <button class="Decr" on:click={lDecr} on:click={accCheck}>-</button>
         </section>
         
         <!-- Input area for tech fouls -->
@@ -478,6 +658,20 @@
                 <option value="2">Docked</option>
                 <option value="3">Engaged</option>
             </select>
+        </section>
+    </section>
+
+    <!-- Title for final data section -->
+    <h2>Other Data</h2>
+
+    <!-- Final criteria grid -->
+    <section class="scoutingArea">
+        
+        <section class="inputArea">
+            <p>Accuracy: {acc}</p>
+        </section>
+        <section class="inputArea">
+            <p>Preferred Element: {pref}</p>
         </section>
     </section>
 
