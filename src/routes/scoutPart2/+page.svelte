@@ -6,6 +6,7 @@
     let acc = 0;
     let pref = null;
     let links = 0;
+    let pointNum = 0;
 
     let att = 0;
     let fouls = 0;
@@ -13,63 +14,85 @@
     let coneNum = 0;
     let cubeNum = 0;
 
-    let c1 = 0;
-    let c2 = 0;
-    let c3 = 0;
-    let c4 = 0;
-    let c5 = 0;
-    let c6 = 0;
-    let c7 = 0;
-    let c8 = 0;
-    let c9 = 0;
-    let c10 = 0;
-    let c11 = 0;
-    let c12 = 0;
+    let arr = [
+        // first val is level on the grid (hi/mid/lo)
+        // second val is element (none/cone/cube)
+        // third val is stage (auto/teleop)
 
-    let b1 = 0;
-    let b2 = 0;
-    let b3 = 0;
-    let b4 = 0;
-    let b5 = 0;
-    let b6 = 0;
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
 
-    let h1 = 0;
-    let h2 = 0;
-    let h3 = 0;
-    let h4 = 0;
-    let h5 = 0;
-    let h6 = 0;
-    let h7 = 0;
-    let h8 = 0;
-    let h9 = 0;
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 0, 0],
 
-    let active1 = false;
-    let active2 = false;
-    let active3 = false;
-    let active4 = false;
-    let active5 = false;
-    let active6 = false;
-    let active7 = false;
-    let active8 = false;
-    let active9 = false;
-    let active10 = false;
-    let active11 = false;
-    let active12 = false;
-    let active13 = false;
-    let active14 = false;
-    let active15 = false;
-    let active16 = false;
-    let active17 = false;
-    let active18 = false;
-    let active19 = false;
-    let active20 = false;
-    let active21 = false;
-    let active22 = false;
-    let active23 = false;
-    let active24 = false;
-    let active25 = false;
-    let active26 = false;
-    let active27 = false;
+        [2, 0, 0],
+        [2, 0, 0],
+        [2, 0, 0],
+        [2, 0, 0],
+        [2, 0, 0],
+        [2, 0, 0],
+        [2, 0, 0],
+        [2, 0, 0],
+        [2, 0, 0]
+    ]
+
+    let active = [
+        false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+    ]
+
+    // node functions
+    function makeFilled () {
+        coneNum = 0;
+        cubeNum = 0;
+        pointNum = 0;
+        for (let i = 0; i > 27; i++) {
+            if (arr[i][1] == 1) {
+                coneNum = coneNum + 1;
+            } else if (arr[i][1] == 2) {
+                cubeNum = cubeNum + 1;
+            }
+
+            if (arr[i][2] = 0) {
+                if (arr[i][0] = 0) {
+                    pointNum = pointNum + 6;
+                }
+                if (arr[i][0] = 1) {
+                    pointNum = pointNum + 4;
+                }
+                if (arr[i][0] = 2) {
+                    pointNum = pointNum + 3;
+                }
+            }
+            
+            if (arr[i][2] = 1) {
+                if (arr[i][0] = 0) {
+                    pointNum = pointNum + 5;
+                }
+                if (arr[i][0] = 1) {
+                    pointNum = pointNum + 3;
+                }
+                if (arr[i][0] = 2) {
+                    pointNum = pointNum + 2;
+                }
+            }
+        }
+    }
+
+
 
     // attempted nodes functions
     function attIncr () {
@@ -116,274 +139,6 @@
         }
     }
 
-    // cone checkbox functions
-
-    function c1Check () {
-        if (c1 == 0) {
-            c1 = 1;
-            
-        } else {
-            c1 = 0;
-        }
-        coneNum = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function c2Check () {
-        if (c2 == 0) {
-            c2 = 1;
-        } else {
-            c2 = 0;
-        }
-        coneNum = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function c3Check () {
-        if (c3 == 0) {
-            c3 = 1;
-        } else {
-            c3 = 0;
-        }
-        coneNum = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function c4Check () {
-        if (c4 == 0) {
-            c4 = 1;
-        } else {
-            c4 = 0;
-        }
-        coneNum = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function c5Check () {
-        if (c5 == 0) {
-            c5 = 1;
-        } else {
-            c5 = 0;
-        }
-        coneNum = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function c6Check () {
-        if (c6 == 0) {
-            c6 = 1;
-        } else {
-            c6 = 0;
-        }
-        coneNum = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function c7Check () {
-        if (c7 == 0) {
-            c7 = 1;
-        } else {
-            c7 = 0;
-        }
-        coneNum = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function c8Check () {
-        if (c8 == 0) {
-            c8 = 1;
-        } else {
-            c8 = 0;
-        }
-        coneNum = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function c9Check () {
-        if (c9 == 0) {
-            c9 = 1;
-        } else {
-            c9 = 0;
-        }
-        coneNum = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function c10Check () {
-        if (c10 == 0) {
-            c10 = 1;
-        } else {
-            c10 = 0;
-        }
-        coneNum = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function c11Check () {
-        if (c11 == 0) {
-            c11 = 1;
-        } else {
-            c11 = 0;
-        }
-        coneNum = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function c12Check () {
-        if (c12 == 0) {
-            c12 = 1;
-        } else {
-            c12 = 0;
-        }
-        coneNum = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    // cube checkbox functions
-
-    function b1Check () {
-        if (b1 == 0) {
-            b1 = 1;
-        } else {
-            b1 = 0;
-        }
-        cubeNum = b1 + b2 + b3 + b4 + b5 + b6;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function b2Check () {
-        if (b2 == 0) {
-            b2 = 1;
-        } else {
-            b2 = 0;
-        }
-        cubeNum = b1 + b2 + b3 + b4 + b5 + b6;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function b3Check () {
-        if (b3 == 0) {
-            b3 = 1;
-        } else {
-            b3 = 0;
-        }
-        cubeNum = b1 + b2 + b3 + b4 + b5 + b6;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function b4Check () {
-        if (b4 == 0) {
-            b4 = 1;
-        } else {
-            b4 = 0;
-        }
-        cubeNum = b1 + b2 + b3 + b4 + b5 + b6;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function b5Check () {
-        if (b5 == 0) {
-            b5 = 1;
-        } else {
-            b5 = 0;
-        }
-        cubeNum = b1 + b2 + b3 + b4 + b5 + b6;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function b6Check () {
-        if (b6 == 0) {
-            b6 = 1;
-        } else {
-            b6 = 0;
-        }
-        cubeNum = b1 + b2 + b3 + b4 + b5 + b6;
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    // hybrid checkbox functions
-
-    function h1Check () {
-        if (h1 == 0) {
-            h1 = 1;
-        } else {
-            h1 = 0;
-        }
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function h2Check () {
-        if (h2 == 0) {
-            h2 = 1;
-        } else {
-            h2 = 0;
-        }
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function h3Check () {
-        if (h3 == 0) {
-            h3 = 1;
-        } else {
-            h3 = 0;
-        }
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function h4Check () {
-        if (h4 == 0) {
-            h4 = 1;
-        } else {
-            h4 = 0;
-        }
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function h5Check () {
-        if (h5 == 0) {
-            h5 = 1;
-        } else {
-            h5 = 0;
-        }
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function h6Check () {
-        if (h6 == 0) {
-            h6 = 1;
-        } else {
-            h6 = 0;
-        }
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function h7Check () {
-        if (h7 == 0) {
-            h7 = 1;
-        } else {
-            h7 = 0;
-        }
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function h8Check () {
-        if (h8 == 0) {
-            h8 = 1;
-        } else {
-            h8 = 0;
-        }
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
-    function h9Check () {
-        if (h9 == 0) {
-            h9 = 1;
-        } else {
-            h9 = 0;
-        }
-        totalNum = coneNum + cubeNum + h1 + h2 + h3 + h4 + h5 + h6 + h7 + h8 + h9;
-    }
-
     // final data functions
     function accCheck () {
         if ((coneNum == 0) && (cubeNum == 0)) {
@@ -428,89 +183,89 @@
         <section class="INGA">
             <!-- Top row of INGA -->
             <div class="yellow">
-                <button class="cone" on:click={c1Check} on:click={accCheck} on:click={prefCheck} class:active1={active1} on:click="{() => active1 = !active1}"></button>
+                <button class="cone"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b1Check} on:click={accCheck} on:click={prefCheck} class:active2={active2} on:click="{() => active2 = !active2}"></button>
+                <button class="box"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c2Check} on:click={accCheck} on:click={prefCheck} class:active3={active3} on:click="{() => active3 = !active3}"></button>
+                <button class="cone"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c3Check} on:click={accCheck} on:click={prefCheck} class:active4={active4} on:click="{() => active4 = !active4}"></button>
+                <button class="cone"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b2Check} on:click={accCheck} on:click={prefCheck} class:active5={active5} on:click="{() => active5 = !active5}"></button>
+                <button class="box"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c4Check} on:click={accCheck} on:click={prefCheck} class:active6={active6} on:click="{() => active6 = !active6}"></button>
+                <button class="cone"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c5Check} on:click={accCheck} on:click={prefCheck} class:active7={active7} on:click="{() => active7 = !active7}"></button>
+                <button class="cone"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b3Check} on:click={accCheck} on:click={prefCheck} class:active8={active8} on:click="{() => active8 = !active8}"></button>
+                <button class="box"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c6Check} on:click={accCheck} on:click={prefCheck} class:active9={active9} on:click="{() => active9 = !active9}"></button>
+                <button class="cone"></button>
             </div>
 
             <!-- Mid row of INGA -->
             <div class="yellow">
-                <button class="cone" on:click={c7Check} on:click={accCheck} on:click={prefCheck} class:active10={active10} on:click="{() => active10 = !active10}"></button>
+                <button class="cone"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b4Check} on:click={accCheck} on:click={prefCheck} class:active11={active11} on:click="{() => active11 = !active11}"></button>
+                <button class="box"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c8Check} on:click={accCheck} on:click={prefCheck} class:active12={active12} on:click="{() => active12 = !active12}"></button>
+                <button class="cone"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c9Check} on:click={accCheck} on:click={prefCheck} class:active13={active13} on:click="{() => active13 = !active13}"></button>
+                <button class="cone"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b5Check} on:click={accCheck} on:click={prefCheck} class:active14={active14} on:click="{() => active14 = !active14}"></button>
+                <button class="box"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c10Check} on:click={accCheck} on:click={prefCheck} class:active15={active15} on:click="{() => active15 = !active15}"></button>
+                <button class="cone"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c11Check} on:click={accCheck} on:click={prefCheck} class:active16={active16} on:click="{() => active16 = !active16}"></button>
+                <button class="cone"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b6Check} on:click={accCheck} on:click={prefCheck} class:active17={active17} on:click="{() => active17 = !active17}"></button>
+                <button class="box"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c12Check} on:click={accCheck} on:click={prefCheck} class:active18={active18} on:click="{() => active18 = !active18}"></button>
+                <button class="cone"></button>
             </div>
 
             <!-- Low row of INGA -->
             <div class="dual">
-                <button class="hybrid" on:click={h1Check} on:click={accCheck} on:click={prefCheck} class:active19={active19} on:click="{() => active19 = !active19}"></button>
+                <button class="hybrid"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h2Check} on:click={accCheck} on:click={prefCheck} class:active20={active20} on:click="{() => active20 = !active20}"></button>
+                <button class="hybrid"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h3Check} on:click={accCheck} on:click={prefCheck} class:active21={active21} on:click="{() => active21 = !active21}"></button>
+                <button class="hybrid"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h4Check} on:click={accCheck} on:click={prefCheck} class:active22={active22} on:click="{() => active22 = !active22}"></button>
+                <button class="hybrid"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h5Check} on:click={accCheck} on:click={prefCheck} class:active23={active23} on:click="{() => active23 = !active23}"></button>
+                <button class="hybrid"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h6Check} on:click={accCheck} on:click={prefCheck} class:active24={active24} on:click="{() => active24 = !active24}"></button>
+                <button class="hybrid"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h7Check} on:click={accCheck} on:click={prefCheck} class:active25={active25} on:click="{() => active25 = !active25}"></button>
+                <button class="hybrid"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h8Check} on:click={accCheck} on:click={prefCheck} class:active26={active26} on:click="{() => active26 = !active26}"></button>
+                <button class="hybrid"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h9Check} on:click={accCheck} on:click={prefCheck} class:active27={active27} on:click="{() => active27 = !active27}"></button>
+                <button class="hybrid"></button>
             </div>
         </section>
 
@@ -561,89 +316,89 @@
         <section class="INGA">
             <!-- Top row of INGA -->
             <div class="yellow">
-                <button class="cone" on:click={c1Check} on:click={accCheck} on:click={prefCheck} class:active1={active1} on:click="{() => active1 = !active1}"></button>
+                <button class="cone"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b1Check} on:click={accCheck} on:click={prefCheck} class:active2={active2} on:click="{() => active2 = !active2}"></button>
+                <button class="box"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c2Check} on:click={accCheck} on:click={prefCheck} class:active3={active3} on:click="{() => active3 = !active3}"></button>
+                <button class="cone"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c3Check} on:click={accCheck} on:click={prefCheck} class:active4={active4} on:click="{() => active4 = !active4}"></button>
+                <button class="cone"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b2Check} on:click={accCheck} on:click={prefCheck} class:active5={active5} on:click="{() => active5 = !active5}"></button>
+                <button class="box"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c4Check} on:click={accCheck} on:click={prefCheck} class:active6={active6} on:click="{() => active6 = !active6}"></button>
+                <button class="cone"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c5Check} on:click={accCheck} on:click={prefCheck} class:active7={active7} on:click="{() => active7 = !active7}"></button>
+                <button class="cone"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b3Check} on:click={accCheck} on:click={prefCheck} class:active8={active8} on:click="{() => active8 = !active8}"></button>
+                <button class="box"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c6Check} on:click={accCheck} on:click={prefCheck} class:active9={active9} on:click="{() => active9 = !active9}"></button>
+                <button class="cone"></button>
             </div>
 
             <!-- Mid row of INGA -->
             <div class="yellow">
-                <button class="cone" on:click={c7Check} on:click={accCheck} on:click={prefCheck} class:active10={active10} on:click="{() => active10 = !active10}"></button>
+                <button class="cone"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b4Check} on:click={accCheck} on:click={prefCheck} class:active11={active11} on:click="{() => active11 = !active11}"></button>
+                <button class="box"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c8Check} on:click={accCheck} on:click={prefCheck} class:active12={active12} on:click="{() => active12 = !active12}"></button>
+                <button class="cone"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c9Check} on:click={accCheck} on:click={prefCheck} class:active13={active13} on:click="{() => active13 = !active13}"></button>
+                <button class="cone"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b5Check} on:click={accCheck} on:click={prefCheck} class:active14={active14} on:click="{() => active14 = !active14}"></button>
+                <button class="box"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c10Check} on:click={accCheck} on:click={prefCheck} class:active15={active15} on:click="{() => active15 = !active15}"></button>
+                <button class="cone"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c11Check} on:click={accCheck} on:click={prefCheck} class:active16={active16} on:click="{() => active16 = !active16}"></button>
+                <button class="cone"></button>
             </div>
             <div class="purple">
-                <button class="box" on:click={b6Check} on:click={accCheck} on:click={prefCheck} class:active17={active17} on:click="{() => active17 = !active17}"></button>
+                <button class="box"></button>
             </div>
             <div class="yellow">
-                <button class="cone" on:click={c12Check} on:click={accCheck} on:click={prefCheck} class:active18={active18} on:click="{() => active18 = !active18}"></button>
+                <button class="cone"></button>
             </div>
 
             <!-- Low row of INGA -->
             <div class="dual">
-                <button class="hybrid" on:click={h1Check} on:click={accCheck} on:click={prefCheck} class:active19={active19} on:click="{() => active19 = !active19}"></button>
+                <button class="hybrid"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h2Check} on:click={accCheck} on:click={prefCheck} class:active20={active20} on:click="{() => active20 = !active20}"></button>
+                <button class="hybrid"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h3Check} on:click={accCheck} on:click={prefCheck} class:active21={active21} on:click="{() => active21 = !active21}"></button>
+                <button class="hybrid"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h4Check} on:click={accCheck} on:click={prefCheck} class:active22={active22} on:click="{() => active22 = !active22}"></button>
+                <button class="hybrid"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h5Check} on:click={accCheck} on:click={prefCheck} class:active23={active23} on:click="{() => active23 = !active23}"></button>
+                <button class="hybrid"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h6Check} on:click={accCheck} on:click={prefCheck} class:active24={active24} on:click="{() => active24 = !active24}"></button>
+                <button class="hybrid"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h7Check} on:click={accCheck} on:click={prefCheck} class:active25={active25} on:click="{() => active25 = !active25}"></button>
+                <button class="hybrid"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h8Check} on:click={accCheck} on:click={prefCheck} class:active26={active26} on:click="{() => active26 = !active26}"></button>
+                <button class="hybrid"></button>
             </div>
             <div class="dual">
-                <button class="hybrid" on:click={h9Check} on:click={accCheck} on:click={prefCheck} class:active27={active27} on:click="{() => active27 = !active27}"></button>
+                <button class="hybrid"></button>
             </div>
         </section>
 
@@ -707,8 +462,9 @@
             <p>Preferred Element: {pref}</p>
         </section>
         <section class="inputArea">
-            <p>Points Scored: </p>
+            <p>Points Scored: {pointNum}</p>
         </section>
+
     </section>
 
     <!-- Link to upload page -->
@@ -868,33 +624,11 @@
         padding: 0px;
     }
 
-    .active1,
-    .active2,
-    .active3,
-    .active4,
-    .active5,
-    .active6,
-    .active7,
-    .active8,
-    .active9,
-    .active10,
-    .active11,
-    .active12,
-    .active13,
-    .active14,
-    .active15,
-    .active16,
-    .active17,
-    .active18,
-    .active19,
-    .active20,
-    .active21,
-    .active22,
-    .active23,
-    .active24,
-    .active25,
-    .active26,
-    .active27 {
-        background-color: #30ace2;
+    .activeCone {
+        background-color: rgba(255,255,0,1);
+    }
+
+    .activeCube {
+        background-color: #ff00ff;
     }
 </style>
