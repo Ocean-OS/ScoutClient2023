@@ -50,46 +50,127 @@
         [2, 0, 0]
     ]
 
-    let active = [
-        false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
-    ]
-
     // node functions
+    function swapCone (a) {
+        switch (arr[a][1]) {
+            case 0:
+                arr[a][1] = 1;
+                break;
+            case 1:
+                arr[a][1] = 0;
+                break;
+        }
+    }
+
+    function swapCube (a) {
+        switch (arr[a][1]) {
+            case 0:
+                arr[a][1] = 2;
+                break;
+            case 2:
+                arr[a][1] = 0;
+                break;
+        }
+    }
+
+    function swapHybrid (a) {
+        switch (arr[a][1]) {
+            case 0:
+                arr[a][1] = 1;
+                break;
+            case 1:
+                arr[a][1] = 2;
+                break;
+            case 2:
+                arr[a][1] = 0;
+                break;
+        }
+    }
+
+    function makeTeleop (a) {
+        switch (arr[a][2]) {
+            case 0:
+                arr[a][2] = 1;
+                break;
+            default:
+                break;
+        }
+    }
+
+    function makeAuto (a) {
+        switch (arr[a][2]) {
+            case 1:
+                arr[a][2] = 0;
+                break;
+            default:
+                break;
+        }
+    }
+
     function makeFilled () {
         coneNum = 0;
         cubeNum = 0;
         pointNum = 0;
-        for (let i = 0; i > 27; i++) {
-            if (arr[i][1] == 1) {
-                coneNum = coneNum + 1;
-            } else if (arr[i][1] == 2) {
-                cubeNum = cubeNum + 1;
+
+        for (let i = 0; i < 27; i++) {
+            switch (arr[i][1]) {
+                case 1:
+                    coneNum = coneNum + 1;
+                    break;
+                case 2:
+                    cubeNum = cubeNum + 1;
+                    break;
+                default:
+                    break;
             }
 
-            if (arr[i][2] = 0) {
-                if (arr[i][0] = 0) {
-                    pointNum = pointNum + 6;
-                }
-                if (arr[i][0] = 1) {
-                    pointNum = pointNum + 4;
-                }
-                if (arr[i][0] = 2) {
-                    pointNum = pointNum + 3;
-                }
-            }
-            
-            if (arr[i][2] = 1) {
-                if (arr[i][0] = 0) {
-                    pointNum = pointNum + 5;
-                }
-                if (arr[i][0] = 1) {
-                    pointNum = pointNum + 3;
-                }
-                if (arr[i][0] = 2) {
-                    pointNum = pointNum + 2;
-                }
+            switch (arr[i][2]) {
+                case 0:
+                    switch (arr[i][0]) {
+                        case 0:
+                            if (arr[i][1] == 1 || arr[i][1] == 2) {
+                                pointNum = pointNum + 6;
+                            }
+                            break;
+                        case 1:
+                        if (arr[i][1] == 1 || arr[i][1] == 2) {
+                                pointNum = pointNum + 4;
+                            }
+                            break;
+                        case 2:
+                        if (arr[i][1] == 1 || arr[i][1] == 2) {
+                                pointNum = pointNum + 3;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case 1:
+                    switch (arr[i][0]) {
+                        case 0:
+                        if (arr[i][1] == 1 || arr[i][1] == 2) {
+                                pointNum = pointNum + 5;
+                            }
+                            break;
+                        case 1:
+                        if (arr[i][1] == 1 || arr[i][1] == 2) {
+                                pointNum = pointNum + 3;
+                            }
+                            break;
+                        case 2:
+                        if (arr[i][1] == 1 || arr[i][1] == 2) {
+                                pointNum = pointNum + 2;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
             }
         }
+        totalNum = cubeNum + coneNum;
+        prefCheck();
     }
 
 
@@ -183,89 +264,206 @@
         <section class="INGA">
             <!-- Top row of INGA -->
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(0)}}
+                class:activeCone={arr[0][1] == 1}
+                on:click={() => {makeAuto(0)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box"
+                on:click={() => {swapCube(1)}}
+                class:activeCube={arr[1][1] == 2}
+                on:click={() => {makeAuto(1)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(2)}}
+                class:activeCone={arr[2][1] == 1}
+                on:click={() => {makeAuto(2)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(3)}}
+                class:activeCone={arr[3][1] == 1}
+                on:click={() => {makeAuto(3)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box"
+                on:click={() => {swapCube(4)}}
+                class:activeCube={arr[4][1] == 2}
+                on:click={() => {makeAuto(4)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(5)}}
+                class:activeCone={arr[5][1] == 1}
+                on:click={() => {makeAuto(5)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(6)}}
+                class:activeCone={arr[6][1] == 1}
+                on:click={() => {makeAuto(6)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box"
+                on:click={() => {swapCube(7)}}
+                class:activeCube={arr[7][1] == 2}
+                on:click={() => {makeAuto(7)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(8)}}
+                class:activeCone={arr[8][1] == 1}
+                on:click={() => {makeAuto(8)}}
+                on:click={makeFilled}></button>
             </div>
 
             <!-- Mid row of INGA -->
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(9)}}
+                class:activeCone={arr[9][1] == 1}
+                on:click={() => {makeAuto(9)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box"
+                on:click={() => {swapCube(10)}}
+                class:activeCube={arr[10][1] == 2}
+                on:click={() => {makeAuto(10)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(11)}}
+                class:activeCone={arr[11][1] == 1}
+                on:click={() => {makeAuto(11)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(12)}}
+                class:activeCone={arr[12][1] == 1}
+                on:click={() => {makeAuto(12)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box"
+                on:click={() => {swapCube(13)}}
+                class:activeCube={arr[13][1] == 2}
+                on:click={() => {makeAuto(13)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(14)}}
+                class:activeCone={arr[14][1] == 1}
+                on:click={() => {makeAuto(14)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(15)}}
+                class:activeCone={arr[15][1] == 1}
+                on:click={() => {makeAuto(15)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box"
+                on:click={() => {swapCube(16)}}
+                class:activeCube={arr[16][1] == 2}
+                on:click={() => {makeAuto(16)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(17)}}
+                class:activeCone={arr[17][1] == 1}
+                on:click={() => {makeAuto(17)}}
+                on:click={makeFilled}></button>
             </div>
 
             <!-- Low row of INGA -->
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(18)}}
+                class:activeCone={arr[18][1] == 1}
+                class:activeCube={arr[18][1] == 2}
+                on:click={() => {makeAuto(18)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(19)}}
+                class:activeCone={arr[19][1] == 1}
+                class:activeCube={arr[19][1] == 2}
+                on:click={() => {makeAuto(19)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(20)}}
+                class:activeCone={arr[20][1] == 1}
+                class:activeCube={arr[20][1] == 2}
+                on:click={() => {makeAuto(20)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(21)}}
+                class:activeCone={arr[21][1] == 1}
+                class:activeCube={arr[21][1] == 2}
+                on:click={() => {makeAuto(21)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(22)}}
+                class:activeCone={arr[22][1] == 1}
+                class:activeCube={arr[22][1] == 2}
+                on:click={() => {makeAuto(22)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(23)}}
+                class:activeCone={arr[23][1] == 1}
+                class:activeCube={arr[23][1] == 2}
+                on:click={() => {makeAuto(23)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(24)}}
+                class:activeCone={arr[24][1] == 1}
+                class:activeCube={arr[24][1] == 2}
+                on:click={() => {makeAuto(24)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(25)}}
+                class:activeCone={arr[25][1] == 1}
+                class:activeCube={arr[25][1] == 2}
+                on:click={() => {makeAuto(25)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(26)}}
+                class:activeCone={arr[26][1] == 1}
+                class:activeCube={arr[26][1] == 2}
+                on:click={() => {makeAuto(26)}}
+                on:click={makeFilled}></button>
             </div>
         </section>
 
@@ -316,89 +514,206 @@
         <section class="INGA">
             <!-- Top row of INGA -->
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(0)}}
+                class:activeCone={arr[0][1] == 1}
+                on:click={() => {makeTeleop(0)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box"
+                on:click={() => {swapCube(1)}}
+                class:activeCube={arr[1][1] == 2}
+                on:click={() => {makeTeleop(1)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(2)}}
+                class:activeCone={arr[2][1] == 1}
+                on:click={() => {makeTeleop(2)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(3)}}
+                class:activeCone={arr[3][1] == 1}
+                on:click={() => {makeTeleop(3)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box"
+                on:click={() => {swapCube(4)}}
+                class:activeCube={arr[4][1] == 2}
+                on:click={() => {makeTeleop(4)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(5)}}
+                class:activeCone={arr[5][1] == 1}
+                on:click={() => {makeTeleop(5)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(6)}}
+                class:activeCone={arr[6][1] == 1}
+                on:click={() => {makeTeleop(6)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box"
+                on:click={() => {swapCube(7)}}
+                class:activeCube={arr[7][1] == 2}
+                on:click={() => {makeTeleop(7)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(8)}}
+                class:activeCone={arr[8][1] == 1}
+                on:click={() => {makeTeleop(8)}}
+                on:click={makeFilled}></button>
             </div>
 
             <!-- Mid row of INGA -->
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(9)}}
+                class:activeCone={arr[9][1] == 1}
+                on:click={() => {makeTeleop(9)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box"
+                on:click={() => {swapCube(10)}}
+                class:activeCube={arr[10][1] == 2}
+                on:click={() => {makeTeleop(10)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(11)}}
+                class:activeCone={arr[11][1] == 1}
+                on:click={() => {makeTeleop(11)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(12)}}
+                class:activeCone={arr[12][1] == 1}
+                on:click={() => {makeTeleop(12)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box"
+                on:click={() => {swapCube(13)}}
+                class:activeCube={arr[13][1] == 2}
+                on:click={() => {makeTeleop(13)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(14)}}
+                class:activeCone={arr[14][1] == 1}
+                on:click={() => {makeTeleop(14)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(15)}}
+                class:activeCone={arr[15][1] == 1}
+                on:click={() => {makeTeleop(15)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="purple">
-                <button class="box"></button>
+                <button class="box"
+                on:click={() => {swapCube(16)}}
+                class:activeCube={arr[16][1] == 2}
+                on:click={() => {makeTeleop(16)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="yellow">
-                <button class="cone"></button>
+                <button class="cone"
+                on:click={() => {swapCone(17)}}
+                class:activeCone={arr[17][1] == 1}
+                on:click={() => {makeTeleop(17)}}
+                on:click={makeFilled}></button>
             </div>
 
             <!-- Low row of INGA -->
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(18)}}
+                class:activeCone={arr[18][1] == 1}
+                class:activeCube={arr[18][1] == 2}
+                on:click={() => {makeTeleop(18)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(19)}}
+                class:activeCone={arr[19][1] == 1}
+                class:activeCube={arr[19][1] == 2}
+                on:click={() => {makeTeleop(19)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(20)}}
+                class:activeCone={arr[20][1] == 1}
+                class:activeCube={arr[20][1] == 2}
+                on:click={() => {makeTeleop(20)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(21)}}
+                class:activeCone={arr[21][1] == 1}
+                class:activeCube={arr[21][1] == 2}
+                on:click={() => {makeTeleop(21)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(22)}}
+                class:activeCone={arr[22][1] == 1}
+                class:activeCube={arr[22][1] == 2}
+                on:click={() => {makeTeleop(22)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(23)}}
+                class:activeCone={arr[23][1] == 1}
+                class:activeCube={arr[23][1] == 2}
+                on:click={() => {makeTeleop(23)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(24)}}
+                class:activeCone={arr[24][1] == 1}
+                class:activeCube={arr[24][1] == 2}
+                on:click={() => {makeTeleop(24)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(25)}}
+                class:activeCone={arr[25][1] == 1}
+                class:activeCube={arr[25][1] == 2}
+                on:click={() => {makeTeleop(25)}}
+                on:click={makeFilled}></button>
             </div>
             <div class="dual">
-                <button class="hybrid"></button>
+                <button class="hybrid"
+                on:click={() => {swapHybrid(26)}}
+                class:activeCone={arr[26][1] == 1}
+                class:activeCube={arr[26][1] == 2}
+                on:click={() => {makeTeleop(26)}}
+                on:click={makeFilled}></button>
             </div>
         </section>
 
