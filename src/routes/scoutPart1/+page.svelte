@@ -1,7 +1,10 @@
 <!-- JS CODE -->
 <script>
-
+let teamNum = null;
+let roundNum = null;
+let alliance = null;
 </script>
+
 
 <!-- HTML CODE -->
 
@@ -17,15 +20,15 @@
     <section class="inputArea">
         <!-- Input area for team name -->
         <p>Team #:</p>
-        <input />
+        <input bind:value={teamNum}/>
 
         <!-- Input area for round # -->
         <p>Round #:</p>
-        <input />
+        <input bind:value={roundNum}/>
 
         <!-- Input area for alliance color -->
         <p>Alliance:</p>
-        <input />
+        <input bind:value={alliance}/>
     </section>
     
 

@@ -14,6 +14,9 @@
     let coneNum = 0;
     let cubeNum = 0;
 
+    let autoStation = 0;
+    let endStation = 0;
+
     let arr = [
         // first val is level on the grid (hi/mid/lo)
         // second val is element (none/cone/cube)
@@ -169,8 +172,10 @@
                     break;
             }
         }
+
         totalNum = cubeNum + coneNum;
         prefCheck();
+        accCheck();
     }
 
 
@@ -211,12 +216,17 @@
 
     // links functions
     function lIncr () {
-        links = links + 1;
+        if (links < 9) {
+            links = links + 1;
+            pointNum = pointNum + 5;
+        }
+        
     }
 
     function lDecr () {
         if (links > 0) {
             links = links - 1;
+        pointNum = pointNum - 5;
         }
     }
 
@@ -226,6 +236,7 @@
             acc = 0;
         } else {
             acc = 100 * (totalNum / (totalNum + att));
+            acc = acc.toFixed(2);
         }
     }
 
@@ -491,7 +502,7 @@
         <!-- Input area for charge station -->
         <section class="inputArea">
             <p>Charge Station:</p>
-            <select name="chargeStation" id="chargeStation">
+            <select name="chargeStation" id="chargeStation" value={autoStation}>
                 <option value="0">Off</option>
                 <option value="1">Docked</option>
                 <option value="2">Engaged</option>
@@ -755,7 +766,7 @@
         <!-- Input area for ending position -->
         <section class="inputArea">
             <p>Ending Position:</p>
-            <select name="chargeStation" id="chargeStation">
+            <select name="chargeStation" id="chargeStation" value={endStation}>
                 <option value="0">Field</option>
                 <option value="1">Community</option>
                 <option value="2">Docked</option>
@@ -771,7 +782,7 @@
     <section class="scoutingArea">
         
         <section class="inputArea">
-            <p>Accuracy: {acc}</p>
+            <p>Accuracy: {acc}%</p>
         </section>
         <section class="inputArea">
             <p>Preferred Element: {pref}</p>
