@@ -1,4 +1,7 @@
 <!-- JS CODE -->
+<script>
+    
+</script>
 
 <!-- HTML CODE -->
 <section>

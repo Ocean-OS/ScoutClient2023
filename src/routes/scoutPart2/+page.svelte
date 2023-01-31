@@ -173,6 +173,26 @@
             }
         }
 
+        switch (autoStation) {
+            case 1:
+                pointNum = pointNum + 8;
+                break;
+            case 2:
+                pointNum = pointNum + 12;
+                break;
+        }
+
+        switch (endStation) {
+            case 1:
+                pointNum = pointNum + 8;
+                break;
+            case 2:
+                pointNum = pointNum + 10;
+                break;
+            default:
+                break;
+        }
+
         totalNum = cubeNum + coneNum;
         prefCheck();
         accCheck();
@@ -232,7 +252,7 @@
 
     // final data functions
     function accCheck () {
-        if ((coneNum == 0) && (cubeNum == 0)) {
+        if (totalNum == 0) {
             acc = 0;
         } else {
             acc = 100 * (totalNum / (totalNum + att));
