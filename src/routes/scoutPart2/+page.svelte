@@ -7,15 +7,16 @@
     let pref = null;
     let links = 0;
     let pointNum = 0;
+    let commBool = false;
 
     let att = 0;
     let fouls = 0;
     let tFouls = 0;
     let coneNum = 0;
     let cubeNum = 0;
+    let comm = 0;
 
-    let autoStation = 0;
-    let endStation = 0;
+    let station = [0, 0];
 
     let arr = [
         // first val is level on the grid (hi/mid/lo)
@@ -173,7 +174,15 @@
             }
         }
 
-        switch (autoStation) {
+        switch (comm) {
+            case 0:
+                break;
+            case 1:
+                pointNum = pointNum + 3;
+                break;
+        }
+
+        switch (station[0]) {
             case 1:
                 pointNum = pointNum + 8;
                 break;
@@ -182,11 +191,14 @@
                 break;
         }
 
-        switch (endStation) {
+        switch (station[1]) {
             case 1:
-                pointNum = pointNum + 8;
+                pointNum = pointNum + 2;
                 break;
             case 2:
+                pointNum = pointNum + 6;
+                break;
+            case 3:
                 pointNum = pointNum + 10;
                 break;
             default:
@@ -197,8 +209,6 @@
         prefCheck();
         accCheck();
     }
-
-
 
     // attempted nodes functions
     function attIncr () {
@@ -246,8 +256,36 @@
     function lDecr () {
         if (links > 0) {
             links = links - 1;
-        pointNum = pointNum - 5;
+            pointNum = pointNum - 5;
         }
+    }
+
+    // community functions
+    function commToTrue () {
+        switch (comm) {
+            case 0:
+                comm = 1;
+                commBool = true;
+                break;
+            case 1:
+                break;
+        }
+    }
+
+    function commToFalse () {
+        switch (comm) {
+            case 1:
+                comm = 0;
+                commBool = false;
+                break;
+            case 0:
+                break;
+        }
+    }
+
+    // station functions
+    function stationTo (ind, val) {
+        station[ind] = val;
     }
 
     // final data functions
@@ -518,15 +556,29 @@
             <button class="Incr" on:click={foulsIncr}>+</button>
             <button class="Decr" on:click={foulsDecr}>-</button>
         </section>
+
+        <section class="inputArea">
+            <p>Left Community?</p>
+            <button on:click={commToTrue}
+            class:active={comm == 1}
+            on:click={makeFilled}>Yes</button>
+            <button on:click={commToFalse}
+            class:active={comm == 0}
+            on:click={makeFilled}>No</button>
+        </section>
         
         <!-- Input area for charge station -->
         <section class="inputArea">
             <p>Charge Station:</p>
-            <select name="chargeStation" id="chargeStation" value={autoStation}>
-                <option value="0">Off</option>
-                <option value="1">Docked</option>
-                <option value="2">Engaged</option>
-            </select>
+            <button on:click={() => {stationTo(0, 0)}}
+            class:active={station[0] == 0}
+            on:click={makeFilled}>Off</button>
+            <button on:click={() => {stationTo(0, 1)}}
+            class:active={station[0] == 1}
+            on:click={makeFilled}>Docked</button>
+            <button on:click={() => {stationTo(0, 2)}}
+            class:active={station[0] == 2}
+            on:click={makeFilled}>Engaged</button>
         </section>
     </section>
 
@@ -786,12 +838,18 @@
         <!-- Input area for ending position -->
         <section class="inputArea">
             <p>Ending Position:</p>
-            <select name="chargeStation" id="chargeStation" value={endStation}>
-                <option value="0">Field</option>
-                <option value="1">Community</option>
-                <option value="2">Docked</option>
-                <option value="3">Engaged</option>
-            </select>
+            <button on:click={() => {stationTo(1, 0)}}
+            class:active={station[1] == 0}
+            on:click={makeFilled}>Out</button>
+            <button on:click={() => {stationTo(1, 1)}}
+            class:active={station[1] == 1}
+            on:click={makeFilled}>Community</button>
+            <button on:click={() => {stationTo(1, 2)}}
+            class:active={station[1] == 2}
+            on:click={makeFilled}>Docked</button>
+            <button on:click={() => {stationTo(1, 3)}}
+            class:active={station[1] == 3}
+            on:click={makeFilled}>Engaged</button>
         </section>
     </section>
 
@@ -931,6 +989,11 @@
         justify-content: center;
     }
 
+    button {
+        height: 25px;
+        margin-left: 5px;
+    }
+
     .Incr,
     .Decr {
         width: 25px;
@@ -976,5 +1039,10 @@
 
     .activeCube {
         background-color: #ff00ff;
+    }
+
+    .active {
+        background-color: black;
+        color: #30ace2;
     }
 </style>

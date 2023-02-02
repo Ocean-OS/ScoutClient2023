@@ -3,6 +3,7 @@
 let teamNum = null;
 let roundNum = null;
 let alliance = null;
+let scouter = null;
 </script>
 
 
@@ -18,6 +19,10 @@ let alliance = null;
 
     <!-- Section to group input areas together for margin purposes -->
     <section class="inputArea">
+        <!-- Input area for scouter name -->
+        <p>Scouter:</p>
+        <input bind:value={scouter}/>
+
         <!-- Input area for team name -->
         <p>Team #:</p>
         <input bind:value={teamNum}/>
