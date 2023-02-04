@@ -1,18 +1,10 @@
 <!-- JS CODE -->
 <script>
-    import { navigate } from 'svelte-router';
 
     let teamNum = null;
     let roundNum = null;
     let alliance = null;
     let scouter = null;
-
-    function handleClick() {
-        navigate("/scoutPart2?scouter=${scouter}");
-        navigate("/scoutPart2?teamNum=${teamNum}");
-        navigate("/scoutPart2?alliance=${alliance}");
-        navigate("/scoutPart2?roundNum=${roundNum}");
-    }
 </script>
 
 
@@ -47,7 +39,7 @@
     
 
     <!-- Link to scoring page -->
-    <button class="next" on:click={handleClick}>To Scoring</button>
+    <a href="/scoutPart2">To Scoring</a>
 </section>
 
 
@@ -66,7 +58,7 @@
     }
 
     /* Styling to make links look like buttons */
-    .next {
+    a {
         width: 80%;
         padding: 10px;
         padding-top: 30px;

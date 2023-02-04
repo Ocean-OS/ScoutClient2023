@@ -1,12 +1,5 @@
 <!-- JS CODE -->
 <script>
-    // Import 1st page vars
-    import { getQueryString } from 'svelte-routing';
-
-    let scouter = getQueryString('scouter');
-    let teamNum = getQueryString('teamNum');
-    let alliance = getQueryString('alliance');
-    let roundNum = getQueryString('roundNum');
 
     import { navigate } from 'svelte-router';
 
@@ -17,6 +10,9 @@
     let links = 0;
     let pointNum = 0;
     let commBool = false;
+    let topNum = 0;
+    let midNum = 0;
+    let lowNum = 0;
 
     let att = 0;
     let fouls = 0;
@@ -24,6 +20,7 @@
     let coneNum = 0;
     let cubeNum = 0;
     let comm = 0;
+    let rowPref;
 
     let station = [0, 0];
 
@@ -124,6 +121,9 @@
         coneNum = 0;
         cubeNum = 0;
         pointNum = 0;
+        topNum = 0;
+        midNum = 0;
+        lowNum = 0;
 
         for (let i = 0; i < 27; i++) {
             switch (arr[i][1]) {
@@ -143,16 +143,19 @@
                         case 0:
                             if (arr[i][1] == 1 || arr[i][1] == 2) {
                                 pointNum = pointNum + 6;
+                                topNum = topNum + 1;
                             }
                             break;
                         case 1:
                         if (arr[i][1] == 1 || arr[i][1] == 2) {
                                 pointNum = pointNum + 4;
+                                midNum = midNum + 1;
                             }
                             break;
                         case 2:
                         if (arr[i][1] == 1 || arr[i][1] == 2) {
                                 pointNum = pointNum + 3;
+                                lowNum = lowNum + 1;
                             }
                             break;
                         default:
@@ -164,16 +167,19 @@
                         case 0:
                         if (arr[i][1] == 1 || arr[i][1] == 2) {
                                 pointNum = pointNum + 5;
+                                topNum = topNum + 1;
                             }
                             break;
                         case 1:
                         if (arr[i][1] == 1 || arr[i][1] == 2) {
                                 pointNum = pointNum + 3;
+                                midNum = midNum + 1;
                             }
                             break;
                         case 2:
                         if (arr[i][1] == 1 || arr[i][1] == 2) {
                                 pointNum = pointNum + 2;
+                                lowNum = lowNum + 1;
                             }
                             break;
                         default:
@@ -315,25 +321,6 @@
         } else {
             pref = "both";
         }
-    }
-
-    // Export vars
-    function handleClick() {
-        navigate("/scoutPart2?scouter=${scouter}");
-        navigate("/scoutPart2?teamNum=${teamNum}");
-        navigate("/scoutPart2?alliance=${alliance}");
-        navigate("/scoutPart2?roundNum=${roundNum}");
-        
-        navigate("/scoutPart2?pointNum=${pointNum}");
-        navigate("/scoutPart2?pref=${pref}");
-        navigate("/scoutPart2?roundNum=${roundNum}");
-        navigate("/scoutPart2?roundNum=${roundNum}");
-        navigate("/scoutPart2?roundNum=${roundNum}");
-        navigate("/scoutPart2?acc=${acc}");
-        navigate("/scoutPart2?links=${links}");
-        
-        navigate("/scoutPart2?fouls=${fouls}");
-        navigate("/scoutPart2?tFouls=${tFouls}");
     }
 </script>
 
@@ -895,6 +882,9 @@
         </section>
         <section class="inputArea">
             <p>Points Scored: {pointNum}</p>
+        </section>
+        <section class="inputArea">
+            <p>Preffered Row: {rowPref}</p>
         </section>
 
     </section>
