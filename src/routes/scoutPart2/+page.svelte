@@ -147,13 +147,13 @@
                             }
                             break;
                         case 1:
-                        if (arr[i][1] == 1 || arr[i][1] == 2) {
+                            if (arr[i][1] == 1 || arr[i][1] == 2) {
                                 pointNum = pointNum + 4;
                                 midNum = midNum + 1;
                             }
                             break;
                         case 2:
-                        if (arr[i][1] == 1 || arr[i][1] == 2) {
+                            if (arr[i][1] == 1 || arr[i][1] == 2) {
                                 pointNum = pointNum + 3;
                                 lowNum = lowNum + 1;
                             }
@@ -165,19 +165,19 @@
                 case 1:
                     switch (arr[i][0]) {
                         case 0:
-                        if (arr[i][1] == 1 || arr[i][1] == 2) {
+                            if (arr[i][1] == 1 || arr[i][1] == 2) {
                                 pointNum = pointNum + 5;
                                 topNum = topNum + 1;
                             }
                             break;
                         case 1:
-                        if (arr[i][1] == 1 || arr[i][1] == 2) {
+                            if (arr[i][1] == 1 || arr[i][1] == 2) {
                                 pointNum = pointNum + 3;
                                 midNum = midNum + 1;
                             }
                             break;
                         case 2:
-                        if (arr[i][1] == 1 || arr[i][1] == 2) {
+                            if (arr[i][1] == 1 || arr[i][1] == 2) {
                                 pointNum = pointNum + 2;
                                 lowNum = lowNum + 1;
                             }
