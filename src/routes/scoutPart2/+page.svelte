@@ -189,6 +189,22 @@
             }
         }
 
+        if (topNum > midNum && topNum > lowNum) {
+            rowPref = "Top";
+        } else if (midNum > topNum && midNum > lowNum) {
+            rowPref = "Middle";
+        } else if (lowNum > topNum && lowNum > midNum) {
+            rowPref = "Bottom";
+        } else if (topNum == midNum && (topNum > lowNum || midNum > lowNum)) {
+            rowPref = "Top and Middle";
+        } else if (midNum == lowNum && (midNum > topNum || lowNum > topNum)) {
+            rowPref = "Middle and Bottom";
+        } else if (topNum == lowNum && (topNum > midNum || lowNum > midNum)) {
+            rowPref = "Top and Bottom";
+        } else {
+            rowPref = "None";
+        }
+
         switch (comm) {
             case 0:
                 break;
@@ -884,7 +900,7 @@
             <p>Points Scored: {pointNum}</p>
         </section>
         <section class="inputArea">
-            <p>Preffered Row: {rowPref}</p>
+            <p>Preferred Row: {rowPref}</p>
         </section>
 
     </section>
@@ -1016,13 +1032,6 @@
     .Decr {
         width: 25px;
         height: 25px;
-        margin-left: 5px;
-    }
-
-    select {
-        height: 25px;
-        width: 40%;
-        
         margin-left: 5px;
     }
 
