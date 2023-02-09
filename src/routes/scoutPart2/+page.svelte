@@ -1,8 +1,6 @@
 <!-- JS CODE -->
 <script>
 
-    import { navigate } from 'svelte-router';
-
     // Define variables
     let totalNum = 0;
     let acc = 0;
@@ -331,11 +329,11 @@
 
     function prefCheck () {
         if (coneNum / cubeNum >= 2) {
-            pref = "cone";
+            pref = "Cone";
         } else if (coneNum / cubeNum <= 0.5) {
-            pref = "cube";
+            pref = "Cube";
         } else {
-            pref = "both";
+            pref = "Both";
         }
     }
 </script>

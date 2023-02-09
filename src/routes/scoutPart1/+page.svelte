@@ -26,11 +26,11 @@
 
         <!-- Input area for team name -->
         <p>Team #:</p>
-        <input bind:value={teamNum}/>
+        <input type="number" bind:value={teamNum}/>
 
         <!-- Input area for round # -->
         <p>Round #:</p>
-        <input bind:value={roundNum}/>
+        <input type="number" bind:value={roundNum}/>
 
         <!-- Input area for alliance color -->
         <p>Alliance:</p>
