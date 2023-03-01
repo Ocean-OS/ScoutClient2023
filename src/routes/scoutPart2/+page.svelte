@@ -1,5 +1,15 @@
 <!-- JS CODE -->
 <script>
+    // Import 1st page vars
+    import { Router, Link, Route } from "svelte-routing";
+    import { getQueryString } from 'svelte-routing';
+
+    let scouter = getQueryString('scouter');
+    let teamNum = getQueryString('teamNum');
+    let alliance = getQueryString('alliance');
+    let roundNum = getQueryString('roundNum');
+
+    import { navigate } from 'svelte-router';
 
     // Define variables
     let totalNum = 0;
@@ -335,6 +345,25 @@
         } else {
             pref = "Both";
         }
+    }
+
+    // Export vars
+    function handleClick() {
+        navigate("/scoutPart2?scouter=${scouter}");
+        navigate("/scoutPart2?teamNum=${teamNum}");
+        navigate("/scoutPart2?alliance=${alliance}");
+        navigate("/scoutPart2?roundNum=${roundNum}");
+        
+        navigate("/scoutPart2?pointNum=${pointNum}");
+        navigate("/scoutPart2?pref=${pref}");
+        navigate("/scoutPart2?roundNum=${roundNum}");
+        navigate("/scoutPart2?roundNum=${roundNum}");
+        navigate("/scoutPart2?roundNum=${roundNum}");
+        navigate("/scoutPart2?acc=${acc}");
+        navigate("/scoutPart2?links=${links}");
+        
+        navigate("/scoutPart2?fouls=${fouls}");
+        navigate("/scoutPart2?tFouls=${tFouls}");
     }
 </script>
 
@@ -904,7 +933,7 @@
     </section>
 
     <!-- Link to upload page -->
-    <a href="/upload" class="toPage">To Upload</a>
+    <button class="next" on:click={handleClick}>To Upload</button>
 </section>
 
 <!-- CSS CODE -->
@@ -920,7 +949,8 @@
     }
 
     /* Styling to make links look like buttons */
-    a {
+    a,
+    .next {
         width: 50%;
         padding: 10px;
         padding-top: 30px;
