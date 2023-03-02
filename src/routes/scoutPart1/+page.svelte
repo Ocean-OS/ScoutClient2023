@@ -1,6 +1,5 @@
 <!-- JS CODE -->
 <script>
-    import { Router, Link, Route } from "svelte-routing";
     import { navigate } from 'svelte-router';
 
     let teamNum = null;
@@ -9,10 +8,15 @@
     let scouter = null;
 
     function handleClick() {
-        navigate("/scoutPart2?scouter=${scouter}");
-        navigate("/scoutPart2?teamNum=${teamNum}");
-        navigate("/scoutPart2?alliance=${alliance}");
-        navigate("/scoutPart2?roundNum=${roundNum}");
+        navigate("/upload/+page?scouter=${scouter}");
+        navigate("/upload/+page?teamNum=${teamNum}");
+        navigate("/upload/+page?alliance=${alliance}");
+        navigate("/upload/+page?roundNum=${roundNum}");
+        navigate("/scoutPart2/+page");
+    }
+
+    function goBack () {
+        navigate("/");
     }
 </script>
 
@@ -22,7 +26,7 @@
 <!-- Section for flexbox purposes -->
 <section>
     <!-- Back button just in case user accidentally presses scout button -->
-    <a href="/" class="backButton">Back</a>
+    <button class="backButton" on:click={goBack()}>Back</button>
 
     <!-- Page Title -->
     <h1>Pregame info</h1>

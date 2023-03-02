@@ -1,13 +1,5 @@
 <!-- JS CODE -->
 <script>
-    // Import 1st page vars
-    import { Router, Link, Route } from "svelte-routing";
-    import { getQueryString } from 'svelte-routing';
-
-    let scouter = getQueryString('scouter');
-    let teamNum = getQueryString('teamNum');
-    let alliance = getQueryString('alliance');
-    let roundNum = getQueryString('roundNum');
 
     import { navigate } from 'svelte-router';
 
@@ -349,21 +341,22 @@
 
     // Export vars
     function handleClick() {
-        navigate("/scoutPart2?scouter=${scouter}");
-        navigate("/scoutPart2?teamNum=${teamNum}");
-        navigate("/scoutPart2?alliance=${alliance}");
-        navigate("/scoutPart2?roundNum=${roundNum}");
+        navigate("/upload/+page?pointNum=${pointNum}");
+        navigate("/upload/+page?pref=${pref}");
+        navigate("/upload/+page?roundNum=${roundNum}");
+        navigate("/upload/+page?roundNum=${roundNum}");
+        navigate("/upload/+page?roundNum=${roundNum}");
+        navigate("/upload/+page?acc=${acc}");
+        navigate("/upload/+page?links=${links}");
         
-        navigate("/scoutPart2?pointNum=${pointNum}");
-        navigate("/scoutPart2?pref=${pref}");
-        navigate("/scoutPart2?roundNum=${roundNum}");
-        navigate("/scoutPart2?roundNum=${roundNum}");
-        navigate("/scoutPart2?roundNum=${roundNum}");
-        navigate("/scoutPart2?acc=${acc}");
-        navigate("/scoutPart2?links=${links}");
-        
-        navigate("/scoutPart2?fouls=${fouls}");
-        navigate("/scoutPart2?tFouls=${tFouls}");
+        navigate("/upload/+page?fouls=${fouls}");
+        navigate("/upload/+page?tFouls=${tFouls}");
+
+        navigate("/upload/+page");
+    }
+
+    function goBack () {
+        navigate("/scoutPart1/+page");
     }
 </script>
 
@@ -371,7 +364,7 @@
 <!-- Section for flexbox purposes -->
 <section>
     <!-- Back button just in case user accidentally presses scout button -->
-    <a href="/scoutPart1" class="backButton">Back</a>
+    <button class="backButton" on:click={goBack()}>Back</button>
 
     <!-- Page Title -->
     <h1>Scouting Page</h1>
@@ -949,7 +942,6 @@
     }
 
     /* Styling to make links look like buttons */
-    a,
     .next {
         width: 50%;
         padding: 10px;
@@ -1063,10 +1055,6 @@
         margin-left: 5px;
     }
 
-    .toPage {
-        margin-top: 25%;
-        width: 80%;
-    }
     .yellow {
         background-color: #ffff00;
         border: solid 1px black;
