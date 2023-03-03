@@ -1,33 +1,33 @@
 <!-- JS CODE -->
+<script>
+    
+</script>
 
 <!-- HTML CODE -->
-
-<!-- Section for flexbox purposes -->
 <section>
-    <!-- Title of App -->
-    <h1>Stable Scout 2</h1>
+    <!-- Back button just in case user accidentally presses scout button -->
+    <a href="/scoutPart2" class="backButton">Back</a>
+
+    <!-- Page Title -->
+    <h1>Upload Data</h1>
 
     <!-- Links for starting scouting and uploading data -->
-    <a href="/scoutPart1">Scout</a>
-    <a href="/upload">Upload</a>
+    <a href="/">To Home</a>
 </section>
-
 
 <!-- CSS CODE -->
 <style>
-    /* Applying columned layout to page */
+
     section {
         width: 100%;
         height: 98vh;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
 
         background-color: #30ace2;
     }
 
-    /* Styling to make links look like buttons */
     a {
         width: 50%;
         padding: 10px;
@@ -43,11 +43,21 @@
     }
 
     h1 {
-        margin-bottom: 25%;
-        width: 50%;
+        margin-bottom: 20px;
+        width: 80%;
 
         color: #d8d8d8;
         font-size: 60px;
         text-align: center;
+    }
+
+    .backButton {
+        width: 20%;
+        padding: 10px;
+        margin: 10px;
+
+        font-size: 25px;
+
+        align-self: flex-start;
     }
 </style>
