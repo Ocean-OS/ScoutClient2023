@@ -341,22 +341,16 @@
 
     // Export vars
     function handleClick() {
-        navigate("/upload/+page?pointNum=${pointNum}");
-        navigate("/upload/+page?pref=${pref}");
-        navigate("/upload/+page?roundNum=${roundNum}");
-        navigate("/upload/+page?roundNum=${roundNum}");
-        navigate("/upload/+page?roundNum=${roundNum}");
-        navigate("/upload/+page?acc=${acc}");
-        navigate("/upload/+page?links=${links}");
-        
-        navigate("/upload/+page?fouls=${fouls}");
-        navigate("/upload/+page?tFouls=${tFouls}");
-
-        navigate("/upload/+page");
-    }
-
-    function goBack () {
-        navigate("/scoutPart1/+page");
+        navigate('/upload', {
+            query: {
+                pointNum: pointNum,
+                pref: pref,
+                acc: acc,
+                links: links,
+                fouls: fouls,
+                tFouls: tFouls
+            }
+        });
     }
 </script>
 
@@ -364,7 +358,7 @@
 <!-- Section for flexbox purposes -->
 <section>
     <!-- Back button just in case user accidentally presses scout button -->
-    <button class="backButton" on:click={goBack()}>Back</button>
+    <a href="/scoutPart1" class="backButton">Back</a>
 
     <!-- Page Title -->
     <h1>Scouting Page</h1>
@@ -926,7 +920,7 @@
     </section>
 
     <!-- Link to upload page -->
-    <button class="next" on:click={handleClick}>To Upload</button>
+    <a href="/upload" class="next" on:click={handleClick}>To Upload</a>
 </section>
 
 <!-- CSS CODE -->

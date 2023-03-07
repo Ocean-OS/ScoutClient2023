@@ -3,7 +3,7 @@
 <!-- HTML CODE -->
 
 <!-- Section for flexbox purposes -->
-<section>
+<section data-sveltekit-preload-data="tap">
     <!-- Title of App -->
     <h1>Stable Scout 2</h1>
 

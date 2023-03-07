@@ -8,15 +8,14 @@
     let scouter = null;
 
     function handleClick() {
-        navigate("/upload/+page?scouter=${scouter}");
-        navigate("/upload/+page?teamNum=${teamNum}");
-        navigate("/upload/+page?alliance=${alliance}");
-        navigate("/upload/+page?roundNum=${roundNum}");
-        navigate("/scoutPart2/+page");
-    }
-
-    function goBack () {
-        navigate("/");
+        navigate('/upload', {
+            state: {
+                scouter: scouter,
+                teamNum: teamNum,
+                alliance: alliance,
+                roundNum: roundNum
+            }
+        });
     }
 </script>
 
@@ -26,7 +25,7 @@
 <!-- Section for flexbox purposes -->
 <section>
     <!-- Back button just in case user accidentally presses scout button -->
-    <button class="backButton" on:click={goBack()}>Back</button>
+    <a href="/" class="backButton">Back</a>
 
     <!-- Page Title -->
     <h1>Pregame info</h1>
@@ -52,7 +51,7 @@
     
 
     <!-- Link to scoring page -->
-    <button class="next" on:click={handleClick}>To Scoring</button>
+    <a href="/scoutPart2" class="next" on:click={handleClick}>To Scoring</a>
 </section>
 
 

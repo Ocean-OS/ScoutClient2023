@@ -10,7 +10,7 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^1.0.0",
+		"@sveltejs/adapter-auto": "^1.0.3",
 		"@sveltejs/kit": "^1.0.0",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
@@ -22,6 +22,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"googleapis": "^112.0.0",
+		"qrcode.react": "^3.1.0",
 		"svelte-router": "^3.0.0-alpha.2",
 		"svelte-routing": "^1.6.0",
 		"svelte2tsx": "^0.6.2"
