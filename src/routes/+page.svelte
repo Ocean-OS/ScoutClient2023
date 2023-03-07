@@ -1,4 +1,33 @@
 <!-- JS CODE -->
+<script>
+    import Papa from "papaparse";
+    import { db } from "$lib/db";
+
+    function saveData() {
+        db.scoutData.toArray().then((data) => {
+        let csv = Papa.unparse(data);
+
+        // Create a download link for the CSV file
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.setAttribute("download", "output.csv");
+        link.style.display = "none";
+        document.body.appendChild(link);
+
+        // Download the CSV file
+        link.click();
+
+        // Clean up by removing the download link
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+
+        // Clear database
+        db.scoutData.clear();
+})
+    }
+</script>
 
 <!-- HTML CODE -->
 
@@ -9,7 +38,7 @@
 
     <!-- Links for starting scouting and uploading data -->
     <a href="/scoutPart1">Scout</a>
-    <a href="/upload">Upload</a>
+    <button on:click={saveData}>Save Data</button>
 </section>
 
 

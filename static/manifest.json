@@ -1,0 +1,12 @@
+{
+    "short_name": "Stablescout",
+    "name": "Stablescout Match Client",
+    "start_url": "/",
+    "icons": [],
+    "background_color": "#b9d9eb",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#b9d9eb",
+    "description": "The Scout client for Team 6305 for the 2022 season.",
+    "orientation": "portrait"
+  }

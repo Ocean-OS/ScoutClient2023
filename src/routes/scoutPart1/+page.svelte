@@ -1,21 +1,22 @@
 <!-- JS CODE -->
 <script>
-    import { navigate } from 'svelte-router';
+    import { writable } from 'svelte/store';
+    import { teamNum, roundNum, alliance, scouter } from "$lib/stores";
+    import { goto } from '$app/navigation';
 
-    let teamNum = null;
-    let roundNum = null;
-    let alliance = null;
-    let scouter = null;
+    let _teamNum = null;
+    let _roundNum = null;
+    let _alliance = null;
+    let _scouter = null;
 
     function handleClick() {
-        navigate('/upload', {
-            state: {
-                scouter: scouter,
-                teamNum: teamNum,
-                alliance: alliance,
-                roundNum: roundNum
-            }
-        });
+        if (_teamNum != null && _roundNum != null && _alliance != null && _scouter != null) {
+            teamNum.set(_teamNum);
+            roundNum.set(_roundNum);
+            alliance.set(_alliance);
+            scouter.set(_scouter);
+            goto("/scoutPart2");
+        }
     }
 </script>
 
@@ -34,19 +35,19 @@
     <section class="inputArea">
         <!-- Input area for scouter name -->
         <p>Scouter:</p>
-        <input bind:value={scouter}/>
+        <input bind:value={_scouter}/>
 
         <!-- Input area for team name -->
         <p>Team #:</p>
-        <input type="number" bind:value={teamNum}/>
+        <input type="number" bind:value={_teamNum}/>
 
         <!-- Input area for round # -->
         <p>Round #:</p>
-        <input type="number" bind:value={roundNum}/>
+        <input type="number" bind:value={_roundNum}/>
 
         <!-- Input area for alliance color -->
         <p>Alliance:</p>
-        <input bind:value={alliance}/>
+        <input bind:value={_alliance}/>
     </section>
     
 

@@ -2,8 +2,15 @@
 <script>
 
     import { navigate } from 'svelte-router';
+    import { teamNum, roundNum, alliance, scouter } from "$lib/stores";
+    import { db } from "$lib/db.js";
+    import { goto } from '$app/navigation';
 
     // Define variables
+    let teamNumValue;
+    let roundNumValue;
+    let allianceValue;
+    let scouterValue;
     let totalNum = 0;
     let acc = 0;
     let pref = null;
@@ -23,6 +30,27 @@
     let rowPref;
 
     let station = [0, 0];
+
+    teamNum.subscribe(value => {
+        teamNumValue = value;
+    });
+
+    roundNum.subscribe(value => {
+        roundNumValue = value;
+    });
+
+    alliance.subscribe(value => {
+        allianceValue = value;
+    });
+
+    scouter.subscribe(value => {
+        scouterValue = value;
+    });
+
+    console.log('teamNum:', teamNumValue);
+    console.log('roundNum:', roundNumValue);
+    console.log('alliance:', allianceValue);
+    console.log('scouter:', scouterValue);
 
     let arr = [
         // first val is level on the grid (hi/mid/lo)
@@ -341,16 +369,8 @@
 
     // Export vars
     function handleClick() {
-        navigate('/upload', {
-            query: {
-                pointNum: pointNum,
-                pref: pref,
-                acc: acc,
-                links: links,
-                fouls: fouls,
-                tFouls: tFouls
-            }
-        });
+        let data = {Scouter: scouterValue, Team: teamNumValue, Round: roundNumValue, Alliance: allianceValue, Points: pointNum, Links: links, Preferred_Side: pref, Accuracy: acc, Fouls: fouls, Technical_Fouls: tFouls};
+        db.scoutData.add(data).then(() => { goto("/"); });
     }
 </script>
 
@@ -920,7 +940,7 @@
     </section>
 
     <!-- Link to upload page -->
-    <a href="/upload" class="next" on:click={handleClick}>To Upload</a>
+    <button on:click={handleClick}>Save</button>
 </section>
 
 <!-- CSS CODE -->
