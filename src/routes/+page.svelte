@@ -34,49 +34,18 @@
 <!-- Section for flexbox purposes -->
 <section data-sveltekit-preload-data="tap">
     <!-- Title of App -->
-    <h1>Stable Scout 2</h1>
+    <div class="md:h h-screen flex flex-col">
+        <div class="bg-blue-300 flex flex-col flex-grow items-center">
+            <div class="text-slate-800 text-center">
+                <h1 class="font-bold mr-auto text-7xl text-slate-800 mx-auto mt-20">Stable<br>Scout</h1>
+                <h1 class="animate-bounce font-bold mr-auto text-7xl text-slate-800 mx-auto mt-4">2.0</h1>
+            </div>
 
-    <!-- Links for starting scouting and uploading data -->
-    <a href="/scoutPart1">Scout</a>
-    <button on:click={saveData}>Save Data</button>
+            <!-- Links for starting scouting and uploading data -->
+            <div class="text-blue-900 text-4xl justify-center flex flex-col flex-grow items-center mb-52">
+                <a class="bg-blue-400 rounded-lg px-32 p-4 m-2" href="/scoutPart1">Scout</a>
+                <button class="bg-blue-400 rounded-lg px-24 p-4" on:click={saveData}>Save Data</button>
+            </div>
+        </div>
+    </div>
 </section>
-
-
-<!-- CSS CODE -->
-<style>
-    /* Applying columned layout to page */
-    section {
-        width: 100%;
-        height: 98vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        background-color: #30ace2;
-    }
-
-    /* Styling to make links look like buttons */
-    a {
-        width: 50%;
-        padding: 10px;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        margin: 10px;
-
-        background-color: black;
-        color: #d8d8d8;
-        text-decoration: none;
-        text-align: center;
-        font-size: 50px;
-    }
-
-    h1 {
-        margin-bottom: 25%;
-        width: 50%;
-
-        color: #d8d8d8;
-        font-size: 60px;
-        text-align: center;
-    }
-</style>
