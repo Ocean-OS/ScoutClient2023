@@ -337,7 +337,7 @@
     }
 
     // station functions
-    function stationTo (ind, val) {
+    function stationTo (ind: number, val: number) {
         station[ind] = val;
     }
 
@@ -370,567 +370,527 @@
 
 <!-- HTML CODE -->
 <!-- Section for flexbox purposes -->
-<section class="w-100% flex flex-col content-center bg-blue-300">
+<section class="w-full flex flex-col content-center bg-blue-300">
     <!-- Back button just in case user accidentally presses scout button -->
-    <a href="/scoutPart1" class="backButton">Back</a>
+    <a href="/scoutPart1" class="text-slate-600 text-3xl mt-4 ml-2">&#60Back</a>
 
     <!-- Page Title -->
-    <h1 class="mb-20 w-80% text-slate-800 text-center text-7xl">Scouting Page</h1>
+    <h1 class="font-bold mr-auto text-7xl text-slate-800 mx-auto mt-8">Scouting</h1>
+    <h1 class="font-bold mr-auto text-7xl text-slate-800 mx-auto">Page</h1>
 
     <!-- Title for autonomous section -->
-    <h2 class="mb-0 w-80% text-slate-800 text-center text-4xl">Autonomous</h2>
+    <h2 class="mb-0 my-10 w-80% text-slate-800 text-center text-4xl">Autonomous</h2>
 
     <!-- Autonomous criteria grid -->
     <section class="w-100% flex flex-col content-center bg-blue-300 scoutingArea">
-
-        <p>Cones: {coneNum}</p>
-        <p>Cubes: {cubeNum}</p>
-        <p>Total: {totalNum}</p>
+        <div class="mt-10 inline-flex text-xl">
+            <p class="mx-auto">Cones: {coneNum}</p>
+            <p class="mx-auto">Cubes: {cubeNum}</p>
+            <p class="mx-auto">Total: {totalNum}</p>
+        </div>
 
         <!-- Interactable node grid area -->
-        <section class="content-center bg-blue-300 INGA grid gap-0 grid-cols-9 grid-rows-3 justify-between mb-20 border border-black h-100% w-100% p-5">
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+        <section class="content-center bg-blue-300 flex flex-row flex-wrap justify-between mb-5 h-40 w-full p-5">
+            <div class="bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl border border-black {arr[0][1] == 1 ? 'bg-yellow-300' : (arr[0][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(0)}}
-                class:activeCone={arr[0][1] == 1}
                 on:click={() => {makeAuto(0)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="purple bg-purple-500  border border-black w-10 h-10">
-                <button class="box p-4 rounded-3xl bg-white border border-black"
+            <div class="purple bg-purple-500 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="box w-[80%] h-[80%] rounded-3xl border border-black {arr[1][1] == 1 ? 'bg-yellow-300' : (arr[1][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCube(1)}}
-                class:activeCube={arr[1][1] == 2}
                 on:click={() => {makeAuto(1)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[2][1] == 1 ? 'bg-yellow-300' : (arr[2][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(2)}}
-                class:activeCone={arr[2][1] == 1}
                 on:click={() => {makeAuto(2)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[3][1] == 1 ? 'bg-yellow-300' : (arr[3][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(3)}}
-                class:activeCone={arr[3][1] == 1}
                 on:click={() => {makeAuto(3)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="purple bg-purple-500  border border-black w-10 h-10">
-                <button class="box p-4 rounded-3xl bg-white border border-black"
+            <div class="purple bg-purple-500 flex flex-col items-center justify-center  border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="box w-[80%] h-[80%] rounded-3xl border border-black {arr[4][1] == 1 ? 'bg-yellow-300' : (arr[4][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCube(4)}}
-                class:activeCube={arr[4][1] == 2}
                 on:click={() => {makeAuto(4)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[5][1] == 1 ? 'bg-yellow-300' : (arr[5][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(5)}}
-                class:activeCone={arr[5][1] == 1}
                 on:click={() => {makeAuto(5)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[6][1] == 1 ? 'bg-yellow-300' : (arr[6][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(6)}}
-                class:activeCone={arr[6][1] == 1}
                 on:click={() => {makeAuto(6)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="purple bg-purple-500  border border-black w-10 h-10">
-                <button class="box p-4 rounded-3xl bg-white border border-black"
+            <div class="purple bg-purple-500 flex flex-col items-center justify-center  border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="box w-[80%] h-[80%] rounded-3xl border border-black {arr[7][1] == 1 ? 'bg-yellow-300' : (arr[7][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCube(7)}}
-                class:activeCube={arr[7][1] == 2}
                 on:click={() => {makeAuto(7)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[8][1] == 1 ? 'bg-yellow-300' : (arr[8][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(8)}}
-                class:activeCone={arr[8][1] == 1}
                 on:click={() => {makeAuto(8)}}
                 on:click={makeFilled}></button>
             </div>
 
             <!-- Mid row of INGA flex flex-row flex-wrap justify-between align-center -->
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[9][1] == 1 ? 'bg-yellow-300' : (arr[9][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(9)}}
-                class:activeCone={arr[9][1] == 1}
                 on:click={() => {makeAuto(9)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="purple bg-purple-500  border border-black w-10 h-10">
-                <button class="box p-4 rounded-3xl bg-white border border-black"
+            <div class="purple bg-purple-500 flex flex-col items-center justify-center  border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="box w-[80%] h-[80%] rounded-3xl border border-black {arr[10][1] == 1 ? 'bg-yellow-300' : (arr[10][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCube(10)}}
-                class:activeCube={arr[10][1] == 2}
                 on:click={() => {makeAuto(10)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[11][1] == 1 ? 'bg-yellow-300' : (arr[11][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(11)}}
-                class:activeCone={arr[11][1] == 1}
                 on:click={() => {makeAuto(11)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[12][1] == 1 ? 'bg-yellow-300' : (arr[12][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(12)}}
-                class:activeCone={arr[12][1] == 1}
                 on:click={() => {makeAuto(12)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="purple bg-purple-500  border border-black w-10 h-10">
-                <button class="box p-4 rounded-3xl bg-white border border-black"
+            <div class="purple bg-purple-500 flex flex-col items-center justify-center  border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="box w-[80%] h-[80%] rounded-3xl border border-black {arr[13][1] == 1 ? 'bg-yellow-300' : (arr[13][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCube(13)}}
-                class:activeCube={arr[13][1] == 2}
                 on:click={() => {makeAuto(13)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[14][1] == 1 ? 'bg-yellow-300' : (arr[14][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(14)}}
-                class:activeCone={arr[14][1] == 1}
                 on:click={() => {makeAuto(14)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[15][1] == 1 ? 'bg-yellow-300' : (arr[15][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(15)}}
-                class:activeCone={arr[15][1] == 1}
                 on:click={() => {makeAuto(15)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="purple bg-purple-500  border border-black w-10 h-10">
-                <button class="box p-4 rounded-3xl bg-white border border-black"
+            <div class="purple bg-purple-500 flex flex-col items-center justify-center  border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="box w-[80%] h-[80%] rounded-3xl border border-black {arr[16][1] == 1 ? 'bg-yellow-300' : (arr[16][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCube(16)}}
-                class:activeCube={arr[16][1] == 2}
                 on:click={() => {makeAuto(16)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[17][1] == 1 ? 'bg-yellow-300' : (arr[17][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(17)}}
-                class:activeCone={arr[17][1] == 1}
                 on:click={() => {makeAuto(17)}}
                 on:click={makeFilled}></button>
             </div>
 
 
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[18][1] == 1 ? 'bg-yellow-300' : (arr[18][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(18)}}
-                class:activeCone={arr[18][1] == 1}
-                class:activeCube={arr[18][1] == 2}
                 on:click={() => {makeAuto(18)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[19][1] == 1 ? 'bg-yellow-300' : (arr[19][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(19)}}
-                class:activeCone={arr[19][1] == 1}
-                class:activeCube={arr[19][1] == 2}
                 on:click={() => {makeAuto(19)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[20][1] == 1 ? 'bg-yellow-300' : (arr[20][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(20)}}
-                class:activeCone={arr[20][1] == 1}
-                class:activeCube={arr[20][1] == 2}
                 on:click={() => {makeAuto(20)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[21][1] == 1 ? 'bg-yellow-300' : (arr[21][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(21)}}
-                class:activeCone={arr[21][1] == 1}
-                class:activeCube={arr[21][1] == 2}
                 on:click={() => {makeAuto(21)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[22][1] == 1 ? 'bg-yellow-300' : (arr[22][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(22)}}
-                class:activeCone={arr[22][1] == 1}
-                class:activeCube={arr[22][1] == 2}
                 on:click={() => {makeAuto(22)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[23][1] == 1 ? 'bg-yellow-300' : (arr[23][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(23)}}
-                class:activeCone={arr[23][1] == 1}
-                class:activeCube={arr[23][1] == 2}
                 on:click={() => {makeAuto(23)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[24][1] == 1 ? 'bg-yellow-300' : (arr[24][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(24)}}
-                class:activeCone={arr[24][1] == 1}
-                class:activeCube={arr[24][1] == 2}
                 on:click={() => {makeAuto(24)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[25][1] == 1 ? 'bg-yellow-300' : (arr[25][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(25)}}
-                class:activeCone={arr[25][1] == 1}
-                class:activeCube={arr[25][1] == 2}
                 on:click={() => {makeAuto(25)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[26][1] == 1 ? 'bg-yellow-300' : (arr[26][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(26)}}
-                class:activeCone={arr[26][1] == 1}
-                class:activeCube={arr[26][1] == 2}
                 on:click={() => {makeAuto(26)}}
                 on:click={makeFilled}></button>
             </div>
         </section>
 
         <!-- Input area for attempted nodes -->
-        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea">
-            <p>Attempted: {att}</p>
-            <button class="Incr" on:click={attIncr} on:click={accCheck}>+</button>
-            <button class="Decr" on:click={attDecr} on:click={accCheck}>-</button>
+        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea mb-5">
+            <div class="inline-flex mx-auto items-center justify-center">
+                <p class="text-xl">Attempted: {att}</p>
+                <button class="Incr mx-3 text-xl bg-blue-400 rounded px-3 py-1 flex items-center justify-center text-slate-100" on:click={attIncr} on:click={accCheck}>+</button>
+                <button class="Decr mx-3 text-xl bg-blue-400 rounded px-3 py-1 flex items-center justify-center text-slate-100" on:click={attDecr} on:click={accCheck}>-</button>
+            </div>
         </section>
         
         <!-- Input area for tech fouls -->
-        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea">
-            <p>Tech Fouls: {tFouls}</p>
-            <button class="Incr" on:click={tFoulsIncr}>+</button>
-            <button class="Decr" on:click={tFoulsDecr}>-</button>
+        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea mb-5">
+            <div class="inline-flex mx-auto items-center justify-center">
+                <p class="text-xl">Tech Fouls: {tFouls}</p>
+                <button class="Incr mx-3 text-xl bg-blue-400 rounded px-3 py-1 flex items-center justify-center text-slate-100" on:click={tFoulsIncr}>+</button>
+                <button class="Decr mx-3 text-xl bg-blue-400 rounded px-3 py-1 flex items-center justify-center text-slate-100" on:click={tFoulsDecr}>-</button>
+            </div>
         </section>
         
         <!-- Input area for fouls -->
-        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea">
-            <p>Fouls: {fouls}</p>
-            <button class="Incr" on:click={foulsIncr}>+</button>
-            <button class="Decr" on:click={foulsDecr}>-</button>
+        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea mb-5">
+            <div class="inline-flex mx-auto items-center justify-center">
+                <p class="text-xl">Fouls: {fouls}</p>
+                <button class="Incr mx-3 text-xl bg-blue-400 rounded px-3 py-1 flex items-center justify-center text-slate-100" on:click={foulsIncr}>+</button>
+                <button class="Decr mx-3 text-xl bg-blue-400 rounded px-3 py-1 flex items-center justify-center text-slate-100" on:click={foulsDecr}>-</button>
+            </div>
         </section>
 
-        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea">
-            <p>Left Community?</p>
-            <button on:click={commToTrue}
-            class:active={comm == 1}
-            on:click={makeFilled}>Yes</button>
-            <button on:click={commToFalse}
-            class:active={comm == 0}
-            on:click={makeFilled}>No</button>
+        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea mb-5">
+            <div class="inline-flex mx-auto items-center justify-center">
+                <p class="text-xl">Left Community?</p>
+                    <button class="mx-3 text-xl rounded px-3 py-1 flex items-center justify-center text-slate-100 {!commBool ? 'bg-red-400' : 'bg-blue-400'}"
+                    on:click={commToFalse}
+                    on:click={makeFilled}>No</button>
+                    <button class="mx-3 text-xl rounded px-3 py-1 flex items-center justify-center text-slate-100 {commBool ? 'bg-red-400' : 'bg-blue-400'}"
+                    on:click={commToTrue}
+                    on:click={makeFilled}>Yes</button>
+            </div>
         </section>
         
         <!-- Input area for charge station -->
-        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea">
-            <p>Charge Station:</p>
-            <button on:click={() => {stationTo(0, 0)}}
-            class:active={station[0] == 0}
-            on:click={makeFilled}>Off</button>
-            <button on:click={() => {stationTo(0, 1)}}
-            class:active={station[0] == 1}
-            on:click={makeFilled}>Docked</button>
-            <button on:click={() => {stationTo(0, 2)}}
-            class:active={station[0] == 2}
-            on:click={makeFilled}>Engaged</button>
+        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea mb-5">
+            <div class="inline-flex mx-auto items-center justify-center">
+                <p class="text-xl">Charge Station:</p>
+                <button class="mx-1 text-xl rounded px-2 py-1 flex items-center justify-center text-slate-100 {station[0] == 0 ? 'bg-red-400' : 'bg-blue-400'}"
+                on:click={() => {stationTo(0, 0)}}
+                class:active={station[0] == 0}
+                on:click={makeFilled}>Off</button>
+                <button class="mx-1 text-xl rounded px-2 py-1 flex items-center justify-center text-slate-100 {station[0] == 1 ? 'bg-red-400' : 'bg-blue-400'}"
+                on:click={() => {stationTo(0, 1)}}
+                class:active={station[0] == 1}
+                on:click={makeFilled}>Docked</button>
+                <button class="mx-1 text-xl rounded px-2 py-1 flex items-center justify-center text-slate-100 {station[0] == 2 ? 'bg-red-400' : 'bg-blue-400'}"
+                on:click={() => {stationTo(0, 2)}}
+                class:active={station[0] == 2}
+                on:click={makeFilled}>Engaged</button>
+            </div>
         </section>
     </section>
 
     <!-- Title for teleop section -->
-    <h2 class="mb-0 w-80% text-slate-800 text-center text-4xl">Teleop</h2>
+    <h2 class="mb-0 my-10 w-80% text-slate-800 text-center text-4xl">Teleop</h2>
 
     <!-- Teleop criteria grid -->
     <section class="w-100% flex flex-col content-center bg-blue-300 scoutingArea">
-
-        <p>Cones: {coneNum}</p>
-        <p>Cubes: {cubeNum}</p>
-        <p>Total: {totalNum}</p>
+        <div class="mt-10 inline-flex text-xl">
+            <p class="mx-auto">Cones: {coneNum}</p>
+            <p class="mx-auto">Cubes: {cubeNum}</p>
+            <p class="mx-auto">Total: {totalNum}</p>
+        </div>
 
         <!-- Interactable node grid area -->
         <!-- Outline for INGA flex flex-row flex-wrap justify-between align-center -->
-        <section class="content-center bg-blue-300 INGA grid gap-0 grid-cols-9 grid-rows-3 justify-between mb-20 border border-black w-100% h-100 p-5">
+        <section class="content-center bg-blue-300 flex flex-row flex-wrap justify-between mb-5 h-40 w-full p-5">
             <!-- Top row of INGA flex flex-row flex-wrap justify-between align-center -->
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[0][1] == 1 ? 'bg-yellow-300' : (arr[0][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(0)}}
-                class:activeCone={arr[0][1] == 1}
                 on:click={() => {makeTeleop(0)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="purple bg-purple-500  border border-black w-10 h-10">
-                <button class="box p-4 rounded-3xl bg-white border border-black"
+            <div class="purple bg-purple-500 flex flex-col items-center justify-center  border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="box w-[80%] h-[80%] rounded-3xl border border-black {arr[1][1] == 1 ? 'bg-yellow-300' : (arr[1][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCube(1)}}
-                class:activeCube={arr[1][1] == 2}
                 on:click={() => {makeTeleop(1)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[2][1] == 1 ? 'bg-yellow-300' : (arr[2][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(2)}}
-                class:activeCone={arr[2][1] == 1}
                 on:click={() => {makeTeleop(2)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[3][1] == 1 ? 'bg-yellow-300' : (arr[3][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(3)}}
-                class:activeCone={arr[3][1] == 1}
                 on:click={() => {makeTeleop(3)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="purple bg-purple-500  border border-black w-10 h-10">
-                <button class="box p-4 rounded-3xl bg-white border border-black"
+            <div class="purple bg-purple-500 flex flex-col items-center justify-center  border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="box w-[80%] h-[80%] rounded-3xl border border-black {arr[4][1] == 1 ? 'bg-yellow-300' : (arr[4][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCube(4)}}
-                class:activeCube={arr[4][1] == 2}
                 on:click={() => {makeTeleop(4)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[5][1] == 1 ? 'bg-yellow-300' : (arr[5][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(5)}}
-                class:activeCone={arr[5][1] == 1}
                 on:click={() => {makeTeleop(5)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[6][1] == 1 ? 'bg-yellow-300' : (arr[6][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(6)}}
-                class:activeCone={arr[6][1] == 1}
                 on:click={() => {makeTeleop(6)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="purple bg-purple-500  border border-black w-10 h-10">
-                <button class="box p-4 rounded-3xl bg-white border border-black"
+            <div class="purple bg-purple-500 flex flex-col items-center justify-center  border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="box w-[80%] h-[80%] rounded-3xl border border-black {arr[7][1] == 1 ? 'bg-yellow-300' : (arr[7][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCube(7)}}
-                class:activeCube={arr[7][1] == 2}
                 on:click={() => {makeTeleop(7)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[8][1] == 1 ? 'bg-yellow-300' : (arr[8][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(8)}}
-                class:activeCone={arr[8][1] == 1}
                 on:click={() => {makeTeleop(8)}}
                 on:click={makeFilled}></button>
             </div>
 
             <!-- Mid row of INGA flex flex-row flex-wrap justify-between align-center -->
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[9][1] == 1 ? 'bg-yellow-300' : (arr[9][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(9)}}
-                class:activeCone={arr[9][1] == 1}
                 on:click={() => {makeTeleop(9)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="purple bg-purple-500  border border-black w-10 h-10">
-                <button class="box p-4 rounded-3xl bg-white border border-black"
+            <div class="purple bg-purple-500 flex flex-col items-center justify-center  border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="box w-[80%] h-[80%] rounded-3xl border border-black {arr[10][1] == 1 ? 'bg-yellow-300' : (arr[10][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCube(10)}}
-                class:activeCube={arr[10][1] == 2}
                 on:click={() => {makeTeleop(10)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[11][1] == 1 ? 'bg-yellow-300' : (arr[11][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(11)}}
-                class:activeCone={arr[11][1] == 1}
                 on:click={() => {makeTeleop(11)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[12][1] == 1 ? 'bg-yellow-300' : (arr[12][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(12)}}
-                class:activeCone={arr[12][1] == 1}
                 on:click={() => {makeTeleop(12)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="purple bg-purple-500  border border-black w-10 h-10">
-                <button class="box p-4 rounded-3xl bg-white border border-black"
+            <div class="purple bg-purple-500 flex flex-col items-center justify-center  border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="box w-[80%] h-[80%] rounded-3xl border border-black {arr[13][1] == 1 ? 'bg-yellow-300' : (arr[13][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCube(13)}}
-                class:activeCube={arr[13][1] == 2}
                 on:click={() => {makeTeleop(13)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[14][1] == 1 ? 'bg-yellow-300' : (arr[14][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(14)}}
-                class:activeCone={arr[14][1] == 1}
                 on:click={() => {makeTeleop(14)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[15][1] == 1 ? 'bg-yellow-300' : (arr[15][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(15)}}
-                class:activeCone={arr[15][1] == 1}
                 on:click={() => {makeTeleop(15)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="purple bg-purple-500  border border-black w-10 h-10">
-                <button class="box p-4 rounded-3xl bg-white border border-black"
+            <div class="purple bg-purple-500 flex flex-col items-center justify-center  border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="box w-[80%] h-[80%] rounded-3xl border border-black {arr[16][1] == 1 ? 'bg-yellow-300' : (arr[16][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCube(16)}}
-                class:activeCube={arr[16][1] == 2}
                 on:click={() => {makeTeleop(16)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="yellow bg-yellow-400 border border-black w-10 h-10">
-                <button class="cone p-4 rounded-3xl bg-white border border-black"
+            <div class="yellow bg-yellow-400 flex flex-col items-center justify-center border border-black w-[11.11111111111111111%] h-1/3">
+                <button class="cone w-[80%] h-[80%] rounded-3xl  border border-black {arr[17][1] == 1 ? 'bg-yellow-300' : (arr[17][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapCone(17)}}
-                class:activeCone={arr[17][1] == 1}
                 on:click={() => {makeTeleop(17)}}
                 on:click={makeFilled}></button>
             </div>
 
             <!-- Low row of INGA flex flex-row flex-wrap justify-between align-center -->
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[18][1] == 1 ? 'bg-yellow-300' : (arr[18][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(18)}}
-                class:activeCone={arr[18][1] == 1}
-                class:activeCube={arr[18][1] == 2}
                 on:click={() => {makeTeleop(18)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[19][1] == 1 ? 'bg-yellow-300' : (arr[19][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(19)}}
-                class:activeCone={arr[19][1] == 1}
-                class:activeCube={arr[19][1] == 2}
                 on:click={() => {makeTeleop(19)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[20][1] == 1 ? 'bg-yellow-300' : (arr[20][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(20)}}
-                class:activeCone={arr[20][1] == 1}
-                class:activeCube={arr[20][1] == 2}
                 on:click={() => {makeTeleop(20)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[21][1] == 1 ? 'bg-yellow-300' : (arr[21][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(21)}}
-                class:activeCone={arr[21][1] == 1}
-                class:activeCube={arr[21][1] == 2}
                 on:click={() => {makeTeleop(21)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[22][1] == 1 ? 'bg-yellow-300' : (arr[22][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(22)}}
-                class:activeCone={arr[22][1] == 1}
-                class:activeCube={arr[22][1] == 2}
                 on:click={() => {makeTeleop(22)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[23][1] == 1 ? 'bg-yellow-300' : (arr[23][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(23)}}
-                class:activeCone={arr[23][1] == 1}
-                class:activeCube={arr[23][1] == 2}
                 on:click={() => {makeTeleop(23)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[24][1] == 1 ? 'bg-yellow-300' : (arr[24][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(24)}}
-                class:activeCone={arr[24][1] == 1}
-                class:activeCube={arr[24][1] == 2}
                 on:click={() => {makeTeleop(24)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[25][1] == 1 ? 'bg-yellow-300' : (arr[25][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(25)}}
-                class:activeCone={arr[25][1] == 1}
-                class:activeCube={arr[25][1] == 2}
                 on:click={() => {makeTeleop(25)}}
                 on:click={makeFilled}></button>
             </div>
-            <div class="dual bg-slantBack border-black border w-10 h-10">
-                <button class="hybrid p-4 rounded-3xl bg-white border border-black"
+            <div class="dual bg-slantBack flex flex-col items-center justify-center border-black border w-[11.11111111111111111%] h-1/3">
+                <button class="hybrid w-[80%] h-[80%] rounded-3xl border border-black {arr[26][1] == 1 ? 'bg-yellow-300' : (arr[26][1] == 2 ? 'bg-purple-700' : 'bg-white')}"
                 on:click={() => {swapHybrid(26)}}
-                class:activeCone={arr[26][1] == 1}
-                class:activeCube={arr[26][1] == 2}
                 on:click={() => {makeTeleop(26)}}
                 on:click={makeFilled}></button>
             </div>
         </section>
 
         <!-- Input area for attempted nodes -->
-        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea">
-            <p>Attempted: {att}</p>
-            <button class="Incr" on:click={attIncr} on:click={accCheck}>+</button>
-            <button class="Decr" on:click={attDecr} on:click={accCheck}>-</button>
+        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea mb-5">
+            <div class="inline-flex mx-auto items-center justify-center">
+                <p class="text-xl">Attempted: {att}</p>
+                <button class="Incr mx-3 text-xl bg-blue-400 rounded px-3 py-1 flex items-center justify-center text-slate-100" on:click={attIncr} on:click={accCheck}>+</button>
+                <button class="Decr mx-3 text-xl bg-blue-400 rounded px-3 py-1 flex items-center justify-center text-slate-100" on:click={attDecr} on:click={accCheck}>-</button>
+            </div>
         </section>
 
         <!-- Input area for links completed -->
-        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea">
-            <p>Links Completed: {links}</p>
-            <button class="Incr" on:click={lIncr} on:click={accCheck}>+</button>
-            <button class="Decr" on:click={lDecr} on:click={accCheck}>-</button>
+        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea mb-5">
+            <div class="inline-flex mx-auto items-center justify-center">
+                <p class="text-xl">Links Completed: {links}</p>
+                <button class="Incr mx-3 text-xl bg-blue-400 rounded px-3 py-1 flex items-center justify-center text-slate-100" on:click={lIncr} on:click={accCheck}>+</button>
+                <button class="Decr mx-3 text-xl bg-blue-400 rounded px-3 py-1 flex items-center justify-center text-slate-100" on:click={lDecr} on:click={accCheck}>-</button>
+            </div>
         </section>
         
         <!-- Input area for tech fouls -->
-        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea">
-            <p>Tech Fouls: {tFouls}</p>
-            <button class="Incr" on:click={tFoulsIncr}>+</button>
-            <button class="Decr" on:click={tFoulsDecr}>-</button>
+        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea mb-5">
+            <div class="inline-flex mx-auto items-center justify-center">
+                <p class="text-xl">Tech Fouls: {tFouls}</p>
+                <button class="Incr mx-3 text-xl bg-blue-400 rounded px-3 py-1 flex items-center justify-center text-slate-100" on:click={tFoulsIncr}>+</button>
+                <button class="Decr mx-3 text-xl bg-blue-400 rounded px-3 py-1 flex items-center justify-center text-slate-100" on:click={tFoulsDecr}>-</button>
+            </div>
         </section>
         
         <!-- Input area for fouls -->
-        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea">
-            <p>Fouls: {fouls}</p>
-            <button class="Incr" on:click={foulsIncr}>+</button>
-            <button class="Decr" on:click={foulsDecr}>-</button>
+        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea mb-5">
+            <div class="inline-flex mx-auto items-center justify-center">
+                <p class="text-xl">Fouls: {fouls}</p>
+                <button class="Incr mx-3 text-xl bg-blue-400 rounded px-3 py-1 flex items-center justify-center text-slate-100" on:click={foulsIncr}>+</button>
+                <button class="Decr mx-3 text-xl bg-blue-400 rounded px-3 py-1 flex items-center justify-center text-slate-100" on:click={foulsDecr}>-</button>
+            </div>
         </section>
     </section>
 
     <!-- Title for endgame section -->
-    <h2 class="mb-0 w-80% text-slate-800 text-center text-4xl">Endgame</h2>
+    <h2 class="my-10 w-80% text-slate-800 text-center text-4xl">Endgame</h2>
 
     <!-- Endgame criteria grid -->
     <section class="w-100% flex flex-col content-center bg-blue-300 scoutingArea">
         
         <!-- Input area for ending position -->
-        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea">
-            <p>Ending Position:</p>
-            <button on:click={() => {stationTo(1, 0)}}
-            class:active={station[1] == 0}
-            on:click={makeFilled}>Out</button>
-            <button on:click={() => {stationTo(1, 1)}}
-            class:active={station[1] == 1}
-            on:click={makeFilled}>Community</button>
-            <button on:click={() => {stationTo(1, 2)}}
-            class:active={station[1] == 2}
-            on:click={makeFilled}>Docked</button>
-            <button on:click={() => {stationTo(1, 3)}}
-            class:active={station[1] == 3}
-            on:click={makeFilled}>Engaged</button>
+        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea mb-5">
+            <div class="inline-flex mx-auto items-center justify-center">
+                <p class="text-sm">Ending Position:</p>
+                <button class="mx-1 text-sm rounded px-2 py-1 flex items-center justify-center text-slate-100 {station[1] == 0 ? 'bg-red-400' : 'bg-blue-400'}"
+                on:click={() => {stationTo(1, 0)}}
+                class:active={station[1] == 0}
+                on:click={makeFilled}>Out</button>
+                <button class="mx-1 text-sm rounded px-2 py-1 flex items-center justify-center text-slate-100 {station[1] == 1 ? 'bg-red-400' : 'bg-blue-400'}"
+                on:click={() => {stationTo(1, 1)}}
+                class:active={station[1] == 1}
+                on:click={makeFilled}>Community</button>
+                <button class="mx-1 text-sm rounded px-2 py-1 flex items-center justify-center text-slate-100 {station[1] == 2 ? 'bg-red-400' : 'bg-blue-400'}"
+                on:click={() => {stationTo(1, 2)}}
+                class:active={station[1] == 2}
+                on:click={makeFilled}>Docked</button>
+                <button class="mx-1 text-sm rounded px-2 py-1 flex items-center justify-center text-slate-100 {station[1] == 3 ? 'bg-red-400' : 'bg-blue-400'}"
+                on:click={() => {stationTo(1, 3)}}
+                class:active={station[1] == 3}
+                on:click={makeFilled}>Engaged</button>
+            </div>
         </section>
     </section>
 
     <!-- Title for final data section -->
-    <h2 class="mb-0 w-80% text-slate-800 text-center text-4xl">Other Data</h2>
+    <h2 class="my-10 w-80% text-slate-800 text-center text-4xl">Other Data</h2>
 
     <!-- Final criteria grid -->
     <section class="w-100% flex flex-col content-center bg-blue-300 scoutingArea">
         
-        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea">
-            <p>Accuracy: {acc}%</p>
+        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea mx-auto mb-2">
+            <p class="text-xl">Accuracy: {acc}%</p>
         </section>
-        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea">
-            <p>Preferred Element: {pref}</p>
+        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea mx-auto mb-2">
+            <p class="text-xl">Preferred Element: {pref}</p>
         </section>
-        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea">
-            <p>Points Scored: {pointNum}</p>
+        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea mx-auto mb-2">
+            <p class="text-xl">Points Scored: {pointNum}</p>
         </section>
-        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea">
-            <p>Preferred Row: {rowPref}</p>
+        <section class="w-100% flex flex-col content-center bg-blue-300 inputArea mx-auto mb-2">
+            <p class="text-xl">Preferred Row: {rowPref}</p>
         </section>
 
     </section>
 
     <!-- Link to upload page -->
-    <button class="next" on:click={handleClick}>Save</button>
+    <div class="text-blue-900 text-4xl justify-center flex flex-col flex-grow items-center my-5">
+        <button class="bg-blue-400 rounded-lg px-32 p-4 m-2" on:click={handleClick}>Save</button>
+    </div>
 </section>
