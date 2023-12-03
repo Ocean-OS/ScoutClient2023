@@ -85,7 +85,7 @@
             <!-- Links for starting scouting and uploading data -->
             <div class="text-blue-900 text-4xl justify-center flex flex-col flex-grow items-center mb-52">
                 <a class="bg-blue-400 rounded-lg px-32 p-4 m-2" href="/scoutPart1">Scout</a>
-                <button class="bg-blue-400 rounded-lg px-24 p-4" on:click={saveData}>Save Data</button>
+                <button class="bg-blue-400 rounded-lg px-24 p-4" on:click={saveData}>Save Data</button><br>
                 <button class="bg-blue-400 rounded-lg px-24 p-4" on:click={sendData}>Send Data</button>
             </div>
         </div>
